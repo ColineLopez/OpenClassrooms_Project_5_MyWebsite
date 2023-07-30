@@ -13,7 +13,7 @@ creationDate : DATETIME ou DATE
 
 + BDD authors.sql
 
-authorID  : INT [PK]
-firstname : VARCHAR(25)
-lastname  : VARCHAR(25)
+authorID : INT [PK]
+name     : VARCHAR(25)
+
 
