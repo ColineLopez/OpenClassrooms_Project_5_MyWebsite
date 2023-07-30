@@ -1,0 +1,157 @@
+nav{
+  margin:0;
+  padding:0;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+nav ul{
+  margin:0;
+}
+
+nav ul, footer ul{
+  display:flex;
+  justify-content:end;
+  align-items: center;
+  margin:10px;
+/*  font-size: 20px;*/
+}
+
+nav li, footer li{
+  list-style-type:none;
+  margin:15px;
+}
+
+nav a, footer a{
+  font-size: 1em;
+  font-weight: 700;
+  color:#333333;
+  text-decoration:none;
+}
+
+nav a:hover, footer a:hover{
+  color:#000080;
+}
+
+#logo{
+  display:flex;
+  justify-content: start;
+}
+
+
+#banniere{
+/*  margin:0;*/
+  padding:0;
+  height: 400px;
+  background-image: url(../images/colorado.jpeg);
+  background-size: cover;
+  background-position: center;
+}
+
+body{
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+h1{
+  text-align: center;
+  margin:auto;
+  font-size: 2em;
+  color:#FFFFFF;
+}
+
+.center{
+  text-align: center;
+}
+
+.corps1{
+background-color:#D59229;
+  padding:20px;
+}
+
+.corps2{
+  background-color:#CAB48B;
+  padding:20px;
+  text-align: center;
+}
+
+
+.footer-container{
+  text-align: center;
+  padding:10px;
+  background-color: #778F6D;
+}
+
+button{
+    background:#59873C;
+    border:none;
+    border-radius:10px;
+    height:30px;
+    }
+
+button:hover{
+  transition-duration: 0.2s;
+  box-shadow: 4px 2px 2px rgba(0,0,0,0.5);
+}
+
+
+form{
+  text-align: left;
+  width: 320px;
+  margin:auto;
+/*  border:solid 1px;*/
+  padding:5px;
+}
+form input, form textarea{
+  width:180px;
+  border:none;
+  padding-left:8px;
+  border-radius: 10px;
+  margin-bottom:10px;
+}
+form input, form button{
+  height:30px;
+  
+}
+form textarea{
+  height:90px;
+}
+
+form button{
+  text-align: center;
+  margin-left:80px;
+  margin-right:80px;
+  width:50%;
+  border:none;
+}
+
+.nom_prenom{
+  width:140px;
+}
+.contact{
+  width:300px;
+}
+
+.grid{
+  display: flex;
+  justify-content: center;
+}
+
+.element{
+  margin: auto;
+  margin-bottom:10px;
+  width:50%;
+}
+
+.tenpix{
+  margin-bottom:10px;
+}
+
+section{
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  height: 400px;
+  margin:auto;
+/*  padding: 10px;*/
+/*  border: 3px dashed #1c87c9;*/
+  vertical-align: middle;
+}
