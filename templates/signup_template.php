@@ -16,7 +16,7 @@
 		
 		<div class="corps2">
 
-			<form action="signin_config.php" method="post">   
+			<form action="../src/signup_config.php" method="post">   
 				<div class="grid">
 	            <div class="element">Nom*</div>
 	            <div class="element">Prénom*</div>
