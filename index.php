@@ -41,8 +41,8 @@
             <div class="element">Prénom*</div>
           </div>
           <div class="grid">
-            <div class="element"><input class="nom_prenom" type="text" name="nom" required autocomplete="off"></div>
-            <div class="element"><input class="nom_prenom" type="text" name="prenom" required autocomplete="off"></div>
+            <div class="element"><input class="nom_prenom" type="text" name="lastname" required autocomplete="off"></div>
+            <div class="element"><input class="nom_prenom" type="text" name="firstname" required autocomplete="off"></div>
           </div>
         </div>
         <div>
