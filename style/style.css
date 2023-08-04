@@ -29,7 +29,7 @@ nav a, footer a{
 }
 
 nav a:hover, footer a:hover{
-  color:#000080;
+  color:#778F6D;
 }
 
 #logo{
@@ -154,4 +154,50 @@ section{
 /*  padding: 10px;*/
 /*  border: 3px dashed #1c87c9;*/
   vertical-align: middle;
+}
+
+
+.mail{
+  border-radius: 0px;
+  width:32px;
+  height:32px;
+  background: url("../images/enveloppe_2.png") no-repeat;
+}
+
+.mail:hover{
+  background: url("../images/enveloppe_1.png") no-repeat;
+  transition-duration: 0s;
+  box-shadow: 0px 0px 0px rgba(0,0,0,0);
+  cursor:pointer;
+}
+
+
+.github{
+  border-radius: 0px;
+  width:32px;
+  height:32px;
+  background: url("../images/github_2.png") no-repeat;
+  margin-bottom:2px;
+}
+
+.github:hover{
+  background: url("../images/github_1.png") no-repeat;
+  transition-duration: 0s;
+  box-shadow: 0px 0px 0px rgba(0,0,0,0);
+  cursor:pointer;
+}
+
+
+.linkedin{
+  border-radius: 0px;
+  width:32px;
+  height:32px;
+  background: url("../images/linkedin_2.png") no-repeat;
+}
+
+.linkedin:hover{
+  background: url("../images/linkedin_1.png") no-repeat;
+  transition-duration: 0s;
+  box-shadow: 0px 0px 0px rgba(0,0,0,0);
+  cursor:pointer;
 }

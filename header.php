@@ -6,8 +6,8 @@
     <li><a href="index.php#contact">Contact</a></li>
     <li><a href="signup.php">S'inscrire</a></li>
     <li><a href="signin.php">Se connecter</a></li>
-    <li><a href=""><img src="images/enveloppe_2.png"></a></li>
-    <li><a href=""><img src="images/github_2.png"></a></li>
-    <li><a href=""><img src="images/linkedin_2.png"></a></li>
+    <li><button class="mail" onclick="window.open('mailto:coline.llopez@gmail.com','_blank')"></button></li>
+    <li><button class='github' onclick="window.open('https://github.com/ColineLopez', '_blank')"></button></li>
+    <li><button class='linkedin' onclick="window.open('https://www.linkedin.com/in/coline-lopez-5250a7110/', '_blank')"></button></li>
   </ul>
 </nav>

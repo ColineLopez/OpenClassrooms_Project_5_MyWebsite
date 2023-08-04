@@ -23,7 +23,7 @@
 				if($data['password'] === $password)
 				{
 					$_SESSION['user'] = $data['firstname'] . $data['lastname'];
-					header('Location:landing.php');
+					header('Location:../landing.php');
 					die();
 				}else { header('Location:../signin.php?login_err=password'); die(); }
 			}else { header('Location:../signin.php?login_err=email'); die();}
