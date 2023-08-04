@@ -38,12 +38,12 @@ if(isset($_POST['lastname']) && isset($_POST['firstname']) && isset($_POST['emai
 								'email'     => $email,
 								'password'  => $password,
 								'ip'        => $ip));
-							header('Location:inscription.php?reg_err=success');
+							header('Location:../signup.php?reg_err=success');
 
 						}else header('Location:../signup.php?reg_err=password');
 					}else header('Location:../signup.php?reg_err=email');
 				}else header('Location:../signup.php?reg_err=email_length');
-			}else header('Location:../signup.php?reg_err=pseudo_length');
-		}else header('Location:../signup.php?reg_err=already');
-	}
+			}else header('Location:../signup.php?reg_err=firstname_length');
+		}else header('Location:../signup.php?reg_err=lastname_length');
+	}else header('Location:../signup.php?reg_err=already');
 }

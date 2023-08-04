@@ -50,7 +50,7 @@
 							?>
 							<div class="alert alert-success">
 								<strong>Succès</strong> inscription réussie ! <br>
-								<a href='index.php'>Retour à la page d'Accueil</a>
+								<a href='../index.php'>Retour à la page d'Accueil</a>
 							</div>
 							<?php
 							break;
@@ -79,10 +79,18 @@
 							<?php
 							break;
 
-							case 'pseudo_length':
+							case 'firstname_length':
 							?>
 							<div class="alert alert-danger">
-								<strong>Erreur</strong> pseudo trop long
+								<strong>Erreur</strong> prénom trop long
+							</div>
+							<?php
+							break;
+
+							case 'lastname_length':
+							?>
+							<div class="alert alert-danger">
+								<strong>Erreur</strong> nom trop long
 							</div>
 							<?php
 							break;

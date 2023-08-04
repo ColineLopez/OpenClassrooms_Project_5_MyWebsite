@@ -34,7 +34,7 @@
 
     <h2>Me contacter</h2>
 
-    <form action="" method="">
+    <form id="contact" action="" method="">
         <div>
           <div class="grid">
             <div class="element">Nom*</div>
