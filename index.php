@@ -25,7 +25,7 @@
 
     <p>Phrase d'accroche.</p>
     <div>
-      <button type="button" onclick="window.location.href ='contact.php' ;">Me contacter</button>
+      <button type="button" onclick="window.location.href ='index.php#contact' ;">Me contacter</button>
     </div>
   </div>
 
@@ -34,7 +34,7 @@
 
     <h2>Me contacter</h2>
 
-    <form id="contact" action="" method="">
+    <form id="contact" action="src/submit_contact.php" method="POST">
         <div>
           <div class="grid">
             <div class="element">Nom*</div>
@@ -54,6 +54,57 @@
           <div class="tenpix">Message*</div>
           <textarea class="contact" name="message" required autocomplete="off"></textarea>
         </div>
+        <div>
+            <?php
+                    if(isset($_GET['reg_err']))
+                    {
+                        $err = htmlspecialchars($_GET['reg_err']);
+
+                        switch($err) 
+                        {
+                            case 'success':
+                            ?>
+                            <div>
+                                <strong>Merci</strong>, votre message a bien été envoyé ! <br>
+                            </div>
+                            <?php
+                            break;
+                            
+                            case 'email':
+                            ?>
+                            <div class="erreur">
+                                <strong>Erreur</strong> email non valide
+                            </div>
+                            <?php
+                            break;
+
+                            case 'email_length':
+                            ?>
+                            <div class="erreur">
+                                <strong>Erreur</strong> email trop long
+                            </div>
+                            <?php
+                            break;
+
+                            case 'firstname_length':
+                            ?>
+                            <div class="erreur">
+                                <strong>Erreur</strong> prénom trop long
+                            </div>
+                            <?php
+                            break;
+
+                            case 'lastname_length':
+                            ?>
+                            <div class="erreur">
+                                <strong>Erreur</strong> nom trop long
+                            </div>
+                            <?php
+                            break;
+                        }
+                    }
+                ?>
+              </div>
         <div>
           <button class="center" type="submit">Envoyer</button>
         </div>
