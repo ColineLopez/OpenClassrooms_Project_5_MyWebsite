@@ -12,10 +12,7 @@ function getPosts() {
 	}
 
 	// Get the data
-
-	// $statement = $database->query('SELECT articleID, title, chapo, content, DATE_FORMAT(creationDate, \'%d/%m/%Y à %Hh%imin%ss\'), authorID FROM articles ORDER BY date DESC');
-
-	$statement = $database->query('SELECT articleID, title, chapo, content, creationDate, authorID FROM articles ORDER BY creationDate DESC');
+	$statement = $database->query('SELECT * FROM articles LEFT JOIN author ON author.authorID=articles.authorID ORDER BY creationDate DESC ');
 
 	$posts = [];
 
@@ -25,7 +22,7 @@ function getPosts() {
 			'creationDate' => $row['creationDate'],
 			'chapo'        => $row['chapo'],
 			'content'      => $row['content'],
-			'authorID'     => $row['authorID'],
+			'authorID'     => $row['name'],
 		];
 
 		$posts[] = $post;

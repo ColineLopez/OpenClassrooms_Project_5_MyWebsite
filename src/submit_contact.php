@@ -30,10 +30,10 @@
                                 'email'   => $email,
                                 'message' => $message));
                             header('Location:../index.php?reg_err=success');
-                    }else header('Location:../index.php#contact?reg_err=email');
-                }else header('Location:../index.php#contact?reg_err=email_length');
-            }else header('Location:../index.php#contact?reg_err=firstname_length');
-        }else header('Location:../index.php#contact?reg_err=lastname_length');
+                    }else header('Location:../index.php?reg_err=email');
+                }else header('Location:../index.php?reg_err=email_length');
+            }else header('Location:../index.php?reg_err=firstname_length');
+        }else header('Location:../index.php?reg_err=lastname_length');
     }
 
 
