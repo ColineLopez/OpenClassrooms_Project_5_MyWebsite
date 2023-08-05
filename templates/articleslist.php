@@ -27,7 +27,7 @@
 				<p>
 					<?= htmlspecialchars($post['chapo']); ?>
 					<br>
-					<button onclick="window.open('article.php?id=<?= $post['articleID']; ?>')")>Lire plus ></button>
+					<button onclick="window.location.href='article.php?id=<?= $post['articleID']; ?>'")>Lire plus ></button>
 				</p>
 
 			</div>
