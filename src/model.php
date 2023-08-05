@@ -41,8 +41,6 @@ function getPost(float $postID) {
 	// Get the data
 	$statement = databaseConnexion()->query('SELECT * FROM articles LEFT JOIN author ON author.authorID=articles.authorID WHERE articleID="'.$postID.'"');
 
-	// $posts = [];
-
 	while($row = $statement->fetch()){
 		$post = [
 			'articleID'    => $row['articleID'],
@@ -53,7 +51,6 @@ function getPost(float $postID) {
 			'authorID'     => $row['name'],
 		];
 
-		// $posts[] = $post;
 	}
 
 	return $post;
@@ -101,10 +98,10 @@ function contactRequest($lastname, $firstname, $email, $message){
                 {
                     $insert = databaseConnexion()->prepare('INSERT INTO contact(lastname, firstname, email, message) VALUES(:lastname, :firstname, :email, :message)');
                         $insert->execute(array(
-                            'lastname'     => $lastname,
-                            'firstname'  => $firstname,
-                            'email'   => $email,
-                            'message' => $message));
+                            'lastname'  => $lastname,
+                            'firstname' => $firstname,
+                            'email'     => $email,
+                            'message'   => $message));
                         header('Location:../index.php?reg_err=success');
                 }else header('Location:../index.php?reg_err=email');
             }else header('Location:../index.php?reg_err=email_length');
