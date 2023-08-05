@@ -41,11 +41,11 @@ function getPost(float $postID) {
 	// Get the data
 	$statement = databaseConnexion()->query('SELECT * FROM articles LEFT JOIN author ON author.authorID=articles.authorID WHERE articleID="'.$postID.'"');
 
-	$posts = [];
+	// $posts = [];
 
 	while($row = $statement->fetch()){
 		$post = [
-			'articleID' => $row['articleID'],
+			'articleID'    => $row['articleID'],
 			'title'        => $row['title'],
 			'creationDate' => $row['creationDate'],
 			'chapo'        => $row['chapo'],
@@ -53,10 +53,10 @@ function getPost(float $postID) {
 			'authorID'     => $row['name'],
 		];
 
-		$posts[] = $post;
+		// $posts[] = $post;
 	}
 
-	return $posts;
+	return $post;
 }
 
 
@@ -110,4 +110,28 @@ function contactRequest($lastname, $firstname, $email, $message){
             }else header('Location:../index.php?reg_err=email_length');
         }else header('Location:../index.php?reg_err=firstname_length');
     }else header('Location:../index.php?reg_err=lastname_length');
+}
+
+
+
+
+function commentRequest($postID, $author, $content){
+
+	$check = databaseConnexion()->prepare('SELECT articleID, author, content FROM comments');
+
+    $data = $check->fetch();
+    $row = $check->rowCount();
+
+
+    if(strlen($author)<=255)
+    {
+        $insert = databaseConnexion()->prepare('INSERT INTO comments(articleID, author, content, creationDate) VALUES(:articleID, :author, :content, :creationDate)');
+        $insert->execute(array(
+        	'articleID'    => $postID,
+            'author'       => $author,
+            'content'      => $content,
+            'creationDate' => date("Y-m-d H:i:s"),
+            ));
+        header('Location:../article.php?postID='.$postID.'&reg_err=success');
+    }else header('Location:../article.php?postID='.$postID.'&reg_err=name_length');
 }

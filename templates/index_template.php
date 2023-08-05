@@ -69,8 +69,8 @@
                             'firstname_length' => "<strong>Erreur</strong>, votre prénom est trop long",
                             'lastname_length' => "<strong>Erreur</strong>, votre nom est trop long",
                         };
-                    };
-                    echo $message;
+                         echo $message;
+                    }; 
                 ?>
             </div>
             <div>

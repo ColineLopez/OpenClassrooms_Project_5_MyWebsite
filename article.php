@@ -2,10 +2,10 @@
 
 require('src/model.php');
 
-$post = $_GET['id'];
+$postID = $_GET['postID'];
 
-$posts = getPost($post);
+$post = getPost($postID);
 
-$comments = getComments($post);
+$comments = getComments($postID);
 
 require('templates/articlecontent.php');
