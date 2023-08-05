@@ -4,18 +4,25 @@
 	<head>
 		<meta charset="utf-8" /> 
 		<title>Article</title>
+		<link rel="icon" type="image/png" href="../images/logo.png" />
 		<link href="../style/style.css" rel="stylesheet" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
 	</head>
 
-	<?php include_once('header.php') ?>
+	<?php include_once('header.php'); 
+
+	// $postID = $_GET['postID'];
+
+
+	// var_dump($post['articleID']);
+	?>
+
+
 
 	<body>
 
-		<h1>Articles</h1>
-
-		<?php 
-		foreach ($posts as $post){
-		?>
 			<div class="corps1">
 			<div class="news">
 				<h1><?= htmlspecialchars($post['title']); ?></h1>
@@ -33,16 +40,13 @@
 			</div>
 		</div>
 
-		<?php 
-		}
-		?>
 
 
 		<div class="corps2">
 
 			<h3>Ajouter un commentaire</h3>
 
-			<form action="src/submit_comment.php" method="POST">
+			<form action="" method="POST">
 	            <div>
 	            	<div class="tenpix">Nom*</div>
 	          		<input class="contact" type="text" name="name" required autocomplete="off">
@@ -56,6 +60,18 @@
           			<button class="center" type="submit">Envoyer</button>
         		</div>
 			</form>
+
+			<?php
+
+				if(isset($_POST['name']) && isset($_POST['message'])){
+
+		        $author = htmlspecialchars($_POST['name']);
+		        $content = htmlspecialchars($_POST['message']);
+
+		        commentRequest($post['articleID'], $author, $content);
+		    	}
+
+	    	?>
 
 			<br>
 
