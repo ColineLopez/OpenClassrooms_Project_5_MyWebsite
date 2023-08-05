@@ -6,4 +6,6 @@ $post = $_GET['id'];
 
 $posts = getPost($post);
 
+$comments = getComments($post);
+
 require('templates/articlecontent.php');

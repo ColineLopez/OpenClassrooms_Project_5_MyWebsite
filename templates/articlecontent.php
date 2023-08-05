@@ -36,5 +36,59 @@
 		<?php 
 		}
 		?>
+
+
+		<div class="corps2">
+
+			<h3>Ajouter un commentaire</h3>
+
+			<form action="src/submit_comment.php" method="POST">
+	            <div>
+	            	<div class="tenpix">Nom*</div>
+	          		<input class="contact" type="text" name="name" required autocomplete="off">
+	      		</div>
+	        	<div>
+	          		<div class="tenpix"></div>
+	          		<div class="tenpix">Message*</div>
+	          		<textarea class="contact" name="message" required autocomplete="off"></textarea>
+	     		</div>
+	     		<div>
+          			<button class="center" type="submit">Envoyer</button>
+        		</div>
+			</form>
+
+			<br>
+
+			<h3>Commentaires</h3>
+
+
+<?php 
+		foreach ($comments as $comment){
+		?>
+			<div class="news">
+				<p> 
+					<?= "Le " . htmlspecialchars($comment['creationDate']) . ", par " . htmlspecialchars($comment['author']); ?>
+				</p>
+
+				<p>
+					<?= htmlspecialchars($comment['content']); ?>		
+				</p>
+
+			</div>
+
+		<?php 
+		}
+		?>
+
+
+		</div>
+
+
+
+
+
+
+
+
 	</body>
 </html>

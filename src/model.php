@@ -1,18 +1,21 @@
 <?php
 
-function getPosts() {
-	
-	// Database connection
+function databaseConnexion(){
 	try
 	{
 		$database = new PDO('mysql:host=localhost;dbname=mywebsite;charset=utf8', 'root', '');
+		return $database;
 	}
 	catch(Exception $e){
 		die('Erreur : '.$e->getMessage() );
 	}
+}
 
+
+function getPosts() {
+	
 	// Get the data
-	$statement = $database->query('SELECT * FROM articles LEFT JOIN author ON author.authorID=articles.authorID ORDER BY creationDate DESC ');
+	$statement = databaseConnexion()->query('SELECT * FROM articles LEFT JOIN author ON author.authorID=articles.authorID ORDER BY creationDate DESC ');
 
 	$posts = [];
 
@@ -35,17 +38,8 @@ function getPosts() {
 
 function getPost(float $postID) {
 	
-	// Database connection
-	try
-	{
-		$database = new PDO('mysql:host=localhost;dbname=mywebsite;charset=utf8', 'root', '');
-	}
-	catch(Exception $e){
-		die('Erreur : '.$e->getMessage() );
-	}
-
 	// Get the data
-	$statement = $database->query('SELECT * FROM articles LEFT JOIN author ON author.authorID=articles.authorID WHERE articleID="'.$postID.'"');
+	$statement = databaseConnexion()->query('SELECT * FROM articles LEFT JOIN author ON author.authorID=articles.authorID WHERE articleID="'.$postID.'"');
 
 	$posts = [];
 
@@ -66,5 +60,23 @@ function getPost(float $postID) {
 }
 
 
+function getComments($postID) {
+	
+	// Get the data
+	$statement = databaseConnexion()->query('SELECT * FROM comments WHERE articleID="'.$postID.'"');
 
+	$comments = [];
 
+	while($row = $statement->fetch()){
+		$comment = [
+			'articleID'    => $row['articleID'],
+			'creationDate' => $row['creationDate'],
+			'author'        => $row['author'],
+			'content'      => $row['content'],
+		];
+
+		$comments[] = $comment;
+	}
+
+	return $comments;
+}
