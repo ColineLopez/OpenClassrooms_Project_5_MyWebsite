@@ -1,29 +1,21 @@
 <!DOCTYPE html>
-
 <html lang='fr'>
-	<head>
-		<meta charset="utf-8" /> 
-		<title>Article</title>
-		<link rel="icon" type="image/png" href="../images/logo.png" />
-		<link href="../style/style.css" rel="stylesheet" />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-	</head>
 
-	<?php include_once('header.php'); 
+<head>
+	<meta charset="utf-8" /> 
+	<title>Article</title>
+	<link rel="icon" type="image/png" href="../images/logo.png" />
+	<link href="../style/style.css" rel="stylesheet" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+</head>
 
-	// $postID = $_GET['postID'];
-
-
-	// var_dump($post['articleID']);
-	?>
-
-
+	<?php include_once(__DIR__.'/../header.php'); ?>
 
 	<body>
 
-			<div class="corps1">
+		<div class="corps1">
 			<div class="news">
 				<h1><?= htmlspecialchars($post['title']); ?></h1>
 				<p>
@@ -74,37 +66,33 @@
 	    	?>
 
 			<br>
+		</div>
+		
+		<div class="corps2">
 
 			<h3>Commentaires</h3>
 
 
-<?php 
-		foreach ($comments as $comment){
-		?>
-			<div class="news">
-				<p> 
-					<?= "Le " . htmlspecialchars($comment['creationDate']) . ", par " . htmlspecialchars($comment['author']); ?>
-				</p>
+			<?php 
+				foreach ($comments as $comment){
+			?>
+				<div class="news">
+					<p> 
+						<?= "Le " . htmlspecialchars($comment['creationDate']) . ", par " . htmlspecialchars($comment['author']); ?>
+					</p>
 
-				<p>
-					<?= htmlspecialchars($comment['content']); ?>		
-				</p>
+					<p>
+						<?= htmlspecialchars($comment['content']); ?>		
+					</p>
 
-			</div>
+				</div>
 
-		<?php 
-		}
-		?>
+			<?php 
+				}
+			?>
 
 
 		</div>
-
-
-
-
-
-
-
 
 	</body>
 </html>
