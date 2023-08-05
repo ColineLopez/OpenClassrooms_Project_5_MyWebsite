@@ -81,7 +81,7 @@ function getComments($postID) {
 
 function contactRequest($lastname, $firstname, $email, $message){
 
-	$check = databaseConnexion()->prepare('SELECT lastname, firstname, email, message FROM contact WHERE email = ?');
+	$check = databaseConnexion()->prepare('SELECT lastname, firstname, email, message, creationDate FROM contact WHERE email = ?');
 
 	$check->execute(array($email));
     $data = $check->fetch();
@@ -96,17 +96,19 @@ function contactRequest($lastname, $firstname, $email, $message){
             {
                 if(filter_var($email, FILTER_VALIDATE_EMAIL))
                 {
-                    $insert = databaseConnexion()->prepare('INSERT INTO contact(lastname, firstname, email, message) VALUES(:lastname, :firstname, :email, :message)');
+                    $insert = databaseConnexion()->prepare('INSERT INTO contact(lastname, firstname, email, message, creationDate) VALUES(:lastname, :firstname, :email, :message, :creationDate)');
                         $insert->execute(array(
                             'lastname'  => $lastname,
                             'firstname' => $firstname,
                             'email'     => $email,
-                            'message'   => $message));
-                        header('Location:../index.php?reg_err=success');
-                }else header('Location:../index.php?reg_err=email');
-            }else header('Location:../index.php?reg_err=email_length');
-        }else header('Location:../index.php?reg_err=firstname_length');
-    }else header('Location:../index.php?reg_err=lastname_length');
+                            'message'   => $message,
+                    		'creationDate' => date("Y-m-d H:i:s"),
+                    	));
+                        header('Location:../contact.php?reg_err=success');
+                }else header('Location:../contact.php?reg_err=email');
+            }else header('Location:../contact.php?reg_err=email_length');
+        }else header('Location:../contact.php?reg_err=firstname_length');
+    }else header('Location:../contact.php?reg_err=lastname_length');
 }
 
 
