@@ -25,9 +25,9 @@
 					$_SESSION['user'] = $data['firstname'] . $data['lastname'];
 					header('Location:../landing.php');
 					die();
-				}else { header('Location:../signin.php?login_err=password'); die(); }
-			}else { header('Location:../signin.php?login_err=email'); die();}
-		}else { header('Location:../signin.php?login_err=already'); die(); }
-	}else { header('Location:index2.php'); die(); }
+				}else { header('Location:../index.php?action=signin&err=password'); die(); }
+			}else { header('Location:../index.php?action=signin&err=email'); die();}
+		}else { header('Location:../index.php?action=signin&err=unknown'); die(); }
+	}else { header('Location:index.php'); die(); }
 
 ?>

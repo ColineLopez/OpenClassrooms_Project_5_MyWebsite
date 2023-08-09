@@ -32,6 +32,12 @@ nav a:hover, footer a:hover{
   color:#778F6D;
 }
 
+footer{
+/*  position:absolute;*/
+/*  bottom:0;*/
+/*  width:100%;*/
+}
+
 #logo{
   display:flex;
   justify-content: start;
