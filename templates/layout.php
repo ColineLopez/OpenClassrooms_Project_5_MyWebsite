@@ -11,13 +11,33 @@
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
 </head>
 
-<?php include_once(__DIR__.'/../header.php'); ?>
+<nav>
+  <ul>
+    <li id="logo"><a href="index.php"><img class="header-logosize" src="images/logo.png" alt="logo"></a></li>
+    <li><a href="index.php">Accueil</a></li>
+    <li><a href="index.php?action=articles">Articles</a></li>
+    <li><a href="index.php?action=contact">Contact</a></li>
+    <li><a href="index.php?action=signin">Se connecter</a></li>
+    <li><button class="mail" onclick="window.open('mailto:coline.llopez@gmail.com','_blank')"></button></li>
+    <li><button class='github' onclick="window.open('https://github.com/ColineLopez', '_blank')"></button></li>
+    <li><button class='linkedin' onclick="window.open('https://www.linkedin.com/in/coline-lopez-5250a7110/', '_blank')"></button></li>
+  </ul>
+</nav>
 
 <body>
  	<?= $content ?>
 </body>
 
 
-<?php include_once(__DIR__.'/../footer.php'); ?>
+<footer>
+  <ul>
+    <li><a href="index.php?action=terms">Mentions Légales</a></li>
+    <li><a href="index.php?action=admin">Administration</a></li>
+  </ul>
+  <div class="footer-container">
+    © Copyright - Coline Lopez 2023
+  </div>
+
+</footer>
 
 </html>

@@ -1,15 +1,11 @@
 <?php
 
-function dbConnect(){
-	try
-	{
-		$database = new PDO('mysql:host=localhost;dbname=mywebsite;charset=utf8', 'root', '');
-		return $database;
-	}
-	catch(Exception $e){
-		die('Erreur : '.$e->getMessage() );
-	}
+function dbConnect()
+{
+	$database = new PDO('mysql:host=localhost;dbname=mywebsite;charset=utf8', 'root', '');
+	return $database;
 }
+
 
 
 function getPosts() {
@@ -61,29 +57,6 @@ function getPost(float $postID) {
 }
 
 
-function getComments($postID) {
-	
-	// Get the data
-	$database= dbConnect();
-	$statement = $database->query('SELECT * FROM comments WHERE articleID="'.$postID.'" ORDER BY creationDate DESC');
-	// $statement = databaseConnexion()->query('SELECT * FROM comments WHERE articleID = ? ORDER BY creationDate DESC');
-	// $statement->execute([$postID]);
-
-	$comments = [];
-
-	while($row = $statement->fetch()){
-		$comment = [
-			'articleID'    => $row['articleID'],
-			'creationDate' => $row['creationDate'],
-			'author'        => $row['author'],
-			'content'      => $row['content'],
-		];
-
-		$comments[] = $comment;
-	}
-
-	return $comments;
-}
 
 
 function contactRequest($lastname, $firstname, $email, $message){
@@ -122,24 +95,23 @@ function contactRequest($lastname, $firstname, $email, $message){
 
 
 
-function commentRequest($postID, $author, $content){
-
-	$database= dbConnect();
-	$statement = $database->prepare('SELECT articleID, author, content FROM comments');
-
-    $data = $statement->fetch();
-    $row = $statement->rowCount();
 
 
-    if(strlen($author)<=255)
-    {
-        $insert = $database->prepare('INSERT INTO comments(articleID, author, content, creationDate) VALUES(:articleID, :author, :content, :creationDate)');
-        $insert->execute(array(
-        	'articleID'    => $postID,
-            'author'       => $author,
-            'content'      => $content,
-            'creationDate' => date("Y-m-d H:i:s"),
-            ));
-        header('Location:../article.php?postID='.$postID.'&reg_err=success');
-    }else header('Location:../article.php?postID='.$postID.'&reg_err=name_length');
-}
+// 	$statement = $database->prepare('SELECT articleID, author, content FROM comments');
+
+//     $data = $statement->fetch();
+//     $row = $statement->rowCount();
+
+
+//     if(strlen($author)<=255)
+//     {
+//         $insert = $database->prepare('INSERT INTO comments(articleID, author, content, creationDate) VALUES(:articleID, :author, :content, :creationDate)');
+//         $insert->execute(array(
+//         	'articleID'    => $postID,
+//             'author'       => $author,
+//             'content'      => $comment,
+//             'creationDate' => date("Y-m-d H:i:s"),
+//             ));
+//         header('Location:../article.php?postID='.$postID.'&reg_err=success');
+//     }else header('Location:../article.php?postID='.$postID.'&reg_err=name_length');
+// }

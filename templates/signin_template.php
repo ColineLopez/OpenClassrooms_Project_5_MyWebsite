@@ -7,6 +7,7 @@
 
 	<h1>Connexion</h1>
 
+    <!-- <form action="index.php?action=signinReg" method="POST"> -->
     <form action="../src/signin_config.php" method="post"> 
     	<div class="tenpix">
         	<div>Email*</div>
