@@ -12,14 +12,12 @@ function signinReg(array $input)
         $email = strtolower($email);
         $password = htmlspecialchars($input['password']);
 
+        $success = connectUser($email, $password);
+        if(!$success) {
+            throw new Exception('Impossible de vous connecter !');
+        }
+
     } else {
     	throw new Exception('Les données du formulaires sont invalides.');
-    }
-    
-    $success = connectUser($email, $password);
-    if (!$success) {
-    	throw new Exception("Impossible de vous connecter !");
-    } else {
-    	// header('Location: index.php?err=success');
     }
 }

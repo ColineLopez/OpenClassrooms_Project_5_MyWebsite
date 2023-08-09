@@ -9,6 +9,7 @@ function signDbConnect()
 	catch(Exception $e){
 		die('Erreur : '.$e->getMessage() );
 	}
+	return $database;
 }
 
 function connectUser($email, $password)

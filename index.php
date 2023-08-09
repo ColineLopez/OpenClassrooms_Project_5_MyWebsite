@@ -7,7 +7,7 @@ require_once('src/controllers/contact_controller.php');
 require_once('src/controllers/signin_controller.php');
 require_once('src/controllers/signup_controller.php');
 require_once('src/controllers/addcomment_controller.php');
-// require_once('src/controllers/signinreg_controller.php');
+require_once('src/controllers/signinreg_controller.php');
 
 
 	try{
@@ -44,14 +44,14 @@ require_once('src/controllers/addcomment_controller.php');
 
 				die;
 			} 
-		// } elseif ($_GET['action'] === 'signinReg') {
-			// if (!empty($_POST)) {
-				// signinReg($_POST);
-			// } else {
-				// echo "Erreur : aucun identifiant d'inscription envoyé";
+		} elseif ($_GET['action'] === 'signinVer') {
+			if (!empty($_POST)) {
+				signinReg($_POST);
+			} else {
+				echo "Erreur : aucun identifiant d'inscription envoyé";
 
-				// die;
-			// }
+				die;
+			}
 		} else {
 			echo "Erreur 404 : La page que vous recherchez n'existe pas.";
 		}
