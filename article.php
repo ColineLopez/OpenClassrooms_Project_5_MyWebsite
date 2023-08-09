@@ -8,4 +8,4 @@ $post = getPost($postID);
 
 $comments = getComments($postID);
 
-require('templates/articlecontent.php');
+require('templates/article_template.php');
