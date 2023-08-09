@@ -7,6 +7,7 @@
     <h2>Me contacter</h2>
 
     <!-- <form id="contact" action="src/submit_contact.php" method="POST"> -->
+    <!-- <form id="contact" action="index.php?action=contact" method="POST"> -->
     <form id="contact" action="" method="POST">
         <div>
           <div class="grid">
@@ -29,9 +30,9 @@
         </div>
         <div>
             <?php 
-                if(isset($_GET['reg_err']))
+                if(isset($_GET['err']))
                     {
-                        $err = htmlspecialchars($_GET['reg_err']);
+                        $err = htmlspecialchars($_GET['err']);
                         $message = match($err) {
                         'success' => "<strong>Merci</strong>, votre message a bien été envoyé",
                         'email' => "<strong>Erreur</strong>, l'email n'est pas valide",

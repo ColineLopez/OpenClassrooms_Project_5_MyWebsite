@@ -21,7 +21,7 @@
 		<p>
 			<?= htmlspecialchars($post['chapo']); ?>
 		</p>
-		<button onclick="window.location.href='article.php?postID=<?= $post['articleID']; ?>'")>Lire plus ></button>
+		<button onclick="window.location.href='index.php?action=article&postID=<?= urlencode($post['articleID']); ?>'")>Lire plus ></button>
 
 	</div>
 

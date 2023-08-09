@@ -15,7 +15,7 @@
     <p>Phrase d'accroche.</p>
 
     <div>
-      <button type="button" onclick="window.location.href ='contact.php' ;">Me contacter</button>
+      <button type="button" onclick="window.location.href ='index.php?action=contact' ;">Me contacter</button>
     </div>
 </div>
 

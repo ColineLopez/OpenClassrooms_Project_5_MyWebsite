@@ -1,6 +1,6 @@
 <?php
 
-function databaseConnexion(){
+function dbConnect(){
 	try
 	{
 		$database = new PDO('mysql:host=localhost;dbname=mywebsite;charset=utf8', 'root', '');
@@ -15,7 +15,8 @@ function databaseConnexion(){
 function getPosts() {
 	
 	// Get the data
-	$statement = databaseConnexion()->query('SELECT * FROM articles LEFT JOIN author ON author.authorID=articles.authorID ORDER BY creationDate DESC ');
+	$database= dbConnect();
+	$statement = $database->query('SELECT * FROM articles LEFT JOIN author ON author.authorID=articles.authorID ORDER BY creationDate DESC ');
 
 	$posts = [];
 
@@ -39,7 +40,10 @@ function getPosts() {
 function getPost(float $postID) {
 	
 	// Get the data
-	$statement = databaseConnexion()->query('SELECT * FROM articles LEFT JOIN author ON author.authorID=articles.authorID WHERE articleID="'.$postID.'"');
+	$database= dbConnect();
+	$statement = $database->query('SELECT * FROM articles LEFT JOIN author ON author.authorID=articles.authorID WHERE articleID="'.$postID.'"');
+	// $statement = databaseConnexion()->query('SELECT * FROM articles LEFT JOIN author ON author.authorID=articles.authorID WHERE articleID= ? ');
+	// $statement->execute([$postID]);
 
 	while($row = $statement->fetch()){
 		$post = [
@@ -60,7 +64,10 @@ function getPost(float $postID) {
 function getComments($postID) {
 	
 	// Get the data
-	$statement = databaseConnexion()->query('SELECT * FROM comments WHERE articleID="'.$postID.'"');
+	$database= dbConnect();
+	$statement = $database->query('SELECT * FROM comments WHERE articleID="'.$postID.'" ORDER BY creationDate DESC');
+	// $statement = databaseConnexion()->query('SELECT * FROM comments WHERE articleID = ? ORDER BY creationDate DESC');
+	// $statement->execute([$postID]);
 
 	$comments = [];
 
@@ -81,11 +88,12 @@ function getComments($postID) {
 
 function contactRequest($lastname, $firstname, $email, $message){
 
-	$check = databaseConnexion()->prepare('SELECT lastname, firstname, email, message, creationDate FROM contact WHERE email = ?');
+	$database= dbConnect();
+	$statement = $database->prepare('SELECT lastname, firstname, email, message, creationDate FROM contact WHERE email = ?');
 
-	$check->execute(array($email));
-    $data = $check->fetch();
-    $row = $check->rowCount();
+	$statement->execute(array($email));
+    $data = $statement->fetch();
+    $row = $statement->rowCount();
 
 
     if(strlen($lastname)<=25)
@@ -96,7 +104,7 @@ function contactRequest($lastname, $firstname, $email, $message){
             {
                 if(filter_var($email, FILTER_VALIDATE_EMAIL))
                 {
-                    $insert = databaseConnexion()->prepare('INSERT INTO contact(lastname, firstname, email, message, creationDate) VALUES(:lastname, :firstname, :email, :message, :creationDate)');
+                    $insert = $database->prepare('INSERT INTO contact(lastname, firstname, email, message, creationDate) VALUES(:lastname, :firstname, :email, :message, :creationDate)');
                         $insert->execute(array(
                             'lastname'  => $lastname,
                             'firstname' => $firstname,
@@ -104,11 +112,11 @@ function contactRequest($lastname, $firstname, $email, $message){
                             'message'   => $message,
                     		'creationDate' => date("Y-m-d H:i:s"),
                     	));
-                        header('Location:../contact.php?reg_err=success');
-                }else header('Location:../contact.php?reg_err=email');
-            }else header('Location:../contact.php?reg_err=email_length');
-        }else header('Location:../contact.php?reg_err=firstname_length');
-    }else header('Location:../contact.php?reg_err=lastname_length');
+                        header('Location:../index.php?action=contact&err=success');
+                }else header('Location:../index.php?action=contact&err=email');
+            }else header('Location:../index.php?action=contact&err=email_length');
+        }else header('Location:../index.php?action=contact&err=firstname_length');
+    }else header('Location:../index.php?action=contact&err=lastname_length');
 }
 
 
@@ -116,15 +124,16 @@ function contactRequest($lastname, $firstname, $email, $message){
 
 function commentRequest($postID, $author, $content){
 
-	$check = databaseConnexion()->prepare('SELECT articleID, author, content FROM comments');
+	$database= dbConnect();
+	$statement = $database->prepare('SELECT articleID, author, content FROM comments');
 
-    $data = $check->fetch();
-    $row = $check->rowCount();
+    $data = $statement->fetch();
+    $row = $statement->rowCount();
 
 
     if(strlen($author)<=255)
     {
-        $insert = databaseConnexion()->prepare('INSERT INTO comments(articleID, author, content, creationDate) VALUES(:articleID, :author, :content, :creationDate)');
+        $insert = $database->prepare('INSERT INTO comments(articleID, author, content, creationDate) VALUES(:articleID, :author, :content, :creationDate)');
         $insert->execute(array(
         	'articleID'    => $postID,
             'author'       => $author,

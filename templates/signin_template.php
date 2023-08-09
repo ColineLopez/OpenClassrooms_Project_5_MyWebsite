@@ -19,13 +19,13 @@
 
         <div>
         <?php 
-            if(isset($_GET['reg_err']))
+            if(isset($_GET['err']))
                 {
-                    $err = htmlspecialchars($_GET['reg_err']);
+                    $err = htmlspecialchars($_GET['err']);
                     $message = match($err) {
                     'password' => "<strong>Erreur</strong>, le mot de passe est incorrect",
                     'email' => "<strong>Erreur</strong>, l'email n'est pas valide",
-                    'already' => "<strong>Erreur</strong>, aucun compte n'est inscrit avec cet email",
+                    'unknown' => "<strong>Erreur</strong>, aucun compte n'est inscrit avec cet email",
                 };
                  echo $message;
             }; 
@@ -35,7 +35,7 @@
     </form>
 
     <p class="text-center">
-    	<a href="signup.php">Je n'ai pas de compte, m'inscrire</a>
+    	<a href="index.php?action=signup">Je n'ai pas de compte, m'inscrire</a>
     </p>
 
 </div>

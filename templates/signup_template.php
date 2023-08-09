@@ -31,9 +31,9 @@
         <!-- Ajouter une case pour accepter les conditions générales -->
         <div>
         	<?php 
-                if(isset($_GET['reg_err']))
+                if(isset($_GET['err']))
                     {
-                        $err = htmlspecialchars($_GET['reg_err']);
+                        $err = htmlspecialchars($_GET['err']);
                         $message = match($err) {
                         'success' => "<strong>Succès</strong>, inscription réussie ! <a href='index.php'>Retour à la page d'Accueil</a>",
                         'password' => "<strong>Erreur</strong>, le mot de passe est différent",
