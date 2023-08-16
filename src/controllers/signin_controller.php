@@ -1,8 +1,16 @@
 <?php
 
-require_once('src/model.php');
+namespace MyWebsite\Controllers\SignIn;
 
-function signin() {
+require_once('src/model/post.php');
 
-	require('templates/signin_template.php');
+use MyWebsite\Lib\Database\DatabaseConnection;
+use MyWebsite\Model\Sign\SignRepository;
+
+class SignIn
+{
+	public function signin() 
+	{
+		require('templates/signin_template.php');
+	}
 }

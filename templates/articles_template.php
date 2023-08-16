@@ -12,16 +12,16 @@
 	?>
 	<div class="news">
 		<p> 
-			<?= "Le " . htmlspecialchars($post['creationDate']) . ", par " . htmlspecialchars($post['authorID']); ?>
+			<?= "Le " . htmlspecialchars($post->creationDate) . ", par " . htmlspecialchars($post->author); ?>
 		</p>
 		<h3> 
-			<?= htmlspecialchars($post['title'] . " le " . $post['creationDate']); ?>
+			<?= htmlspecialchars($post->title . " le " . $post->creationDate); ?>
 		</h3>
 
 		<p>
-			<?= htmlspecialchars($post['chapo']); ?>
+			<?= htmlspecialchars($post->chapo); ?>
 		</p>
-		<button onclick="window.location.href='index.php?action=article&postID=<?= urlencode($post['articleID']); ?>'")>Lire plus ></button>
+		<button onclick="window.location.href='index.php?action=article&postID=<?= urlencode($post->postID); ?>'")>Lire plus ></button>
 
 	</div>
 

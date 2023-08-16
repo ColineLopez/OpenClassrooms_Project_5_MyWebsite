@@ -1,8 +1,14 @@
 <?php
 
-require_once('src/model.php');
+namespace MyWebsite\Controllers\Index;
 
-function index() {
+require_once('src/lib/database.php');
+require_once('src/model/post.php');
 
-	require('templates/index_template.php');
+class Index
+{
+	public function index() 
+	{
+		require('templates/index_template.php');
+	}
 }

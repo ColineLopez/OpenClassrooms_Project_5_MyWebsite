@@ -1,12 +1,29 @@
 <?php
 
-require_once('src/model.php');
+namespace MyWebsite\Controllers\Article; 
+
+require_once('src/lib/database.php');
+require_once('src/model/post.php');
 require_once('src/model/comment.php');
 
-function article(string $postID)
-{
-	$post = getPost($postID);
-	$comments = getComments($postID);
+use MyWebsite\Lib\Database\DatabaseConnection;
+use MyWebsite\Model\Post\PostRepository;
+use MyWebsite\Model\Comment\CommentRepository;
 
-	require('templates/article_template.php');
+class Article
+{
+	public function execute(string $postID)
+	{
+		$connection = new DatabaseConnection();
+
+		$postRepository = new PostRepository();
+		$postRepository->connection = $connection;
+		$post = $postRepository->getPost($postID);
+
+		$commentRepository = new CommentRepository();
+		$commentRepository->connection = $connection;
+		$comments = $commentRepository->getComments($postID);
+
+		require('templates/article_template.php');
+	}
 }

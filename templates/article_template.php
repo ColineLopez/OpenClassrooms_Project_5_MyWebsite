@@ -1,19 +1,19 @@
-<?php $title = $post['title']; ?>
+<?php $title = $post->title; ?>
 
 <?php ob_start(); ?>
 
 <div class="corps1">
 	<div class="news">
-		<h1><?= htmlspecialchars($post['title']); ?></h1>
+		<h1><?= htmlspecialchars($post->title); ?></h1>
 		<p>
-			<?= htmlspecialchars($post['chapo']); ?>
+			<?= htmlspecialchars($post->chapo); ?>
 		</p>
 		<p> 
-			<?= "Le " . htmlspecialchars($post['creationDate']) . ", par " . htmlspecialchars($post['authorID']); ?>
+			<?= "Le " . htmlspecialchars($post->creationDate) . ", par " . htmlspecialchars($post->author); ?>
 		</p>
 		<img>
 		<p> 
-			<?= htmlspecialchars($post['content']); ?>
+			<?= htmlspecialchars($post->content); ?>
 		</p>
 
 	</div>
@@ -25,7 +25,7 @@
 
 	<h3>Ajouter un commentaire</h3>
 
-	<form action="index.php?action=addComment&postID=<?= $post['articleID'] ?>" method="POST">
+	<form action="index.php?action=addComment&postID=<?= $post->postID ?>" method="POST">
         <div>
         	<div class="tenpix">Nom*</div>
       		<input class="contact" type="text" name="author" required autocomplete="off">
@@ -53,11 +53,11 @@
 	?>
 		<div class="news">
 			<p> 
-				<?= "Le " . htmlspecialchars($comment['creationDate']) . ", par " . htmlspecialchars($comment['author']); ?>
+				<?= "Le " . htmlspecialchars($comment->creationDate) . ", par " . htmlspecialchars($comment->author) ?>
 			</p>
 
 			<p>
-				<?= htmlspecialchars($comment['content']); ?>		
+				<?= htmlspecialchars($comment->content) ?>		
 			</p>
 
 		</div>

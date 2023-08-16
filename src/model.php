@@ -33,7 +33,7 @@ function getPosts() {
 }
 
 
-function getPost(float $postID) {
+function getPost(string $postID) {
 	
 	// Get the data
 	$database= dbConnect();
@@ -59,7 +59,7 @@ function getPost(float $postID) {
 
 
 
-function contactRequest($lastname, $firstname, $email, $message){
+function contactRequest(string $lastname, string $firstname, string $email, string $message){
 
 	$database= dbConnect();
 	$statement = $database->prepare('SELECT lastname, firstname, email, message, creationDate FROM contact WHERE email = ?');

@@ -3,60 +3,61 @@
 require_once('src/controllers/index_controller.php');
 require_once('src/controllers/articles_controller.php');
 require_once('src/controllers/article_controller.php');
-require_once('src/controllers/contact_controller.php');
+require_once('src/controllers/contactpost_controller.php');
 require_once('src/controllers/signin_controller.php');
 require_once('src/controllers/signup_controller.php');
 require_once('src/controllers/addcomment_controller.php');
 require_once('src/controllers/signinreg_controller.php');
 
+use MyWebsite\Controllers\AddComment\AddComment;
+use MyWebsite\Controllers\Index\Index;
+use MyWebsite\Controllers\Articles\Articles;
+use MyWebsite\Controllers\Article\Article;
+use MyWebsite\Controllers\ContactPost\ContactPost;
+use MyWebsite\Controllers\SignIn\SignIn;
+use MyWebsite\Controllers\SignUp\SignUp;
 
 	try{
 	if (isset($_GET['action']) && $_GET['action'] !== '') {
 		if ($_GET['action'] === 'articles') {
-			articles();
+			(new Articles())->execute();
 		}
-		elseif ($_GET['action'] === 'contact') {
-			contact();
+		elseif ($_GET['action'] === 'contactPost') {
+			(new ContactPost())->execute($_POST);
 		}
 		elseif ($_GET['action'] === 'signin') {
-			signin();
+			(new SignIn())->signin();
 		}
 		elseif ($_GET['action'] === 'signup') {
-			signup();
+			(new SignUp())->signup();
 		}
 		elseif($_GET['action'] === 'article') {
 			if (isset($_GET['postID']) && $_GET['postID']>0){
 				$postID = $_GET['postID'];
 
-				article($postID);
+				(new Article())->execute($postID);
 			} else {
-				echo 'Erreur : aucun identifiant de billet envoyé';
-
-				die;
+				throw new Exception('Erreur : aucun identifiant de billet envoyé');
 			}
 		} elseif ($_GET['action'] === 'addComment') {
 			if (isset($_GET['postID']) && $_GET['postID'] > 0) {
 				$postID = $_GET['postID'];
 
-				addComment($postID, $_POST);
+				(new AddComment())->execute($postID, $_POST);
 			} else {
-				echo 'Erreur : aucun identifiant de billet envoyé';
-
-				die;
+				throw new Exception('Erreur : aucun identifiant de billet envoyé');
 			} 
 		} elseif ($_GET['action'] === 'signinVer') {
 			if (!empty($_POST)) {
 				signinReg($_POST);
 			} else {
-				echo "Erreur : aucun identifiant d'inscription envoyé";
-
-				die;
+				throw new Exception("Erreur : aucun identifiant d'inscription envoyé");
 			}
 		} else {
-			echo "Erreur 404 : La page que vous recherchez n'existe pas.";
+			throw new Exception("Erreur 404 : La page que vous recherchez n'existe pas.");
 		}
 	} else {
-		index();
+		(new Index())->index();
 	}
 } catch (Exception $e) {
 	echo 'Erreur : ' .$e->getMessage();
