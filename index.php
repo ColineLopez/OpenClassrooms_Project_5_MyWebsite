@@ -7,7 +7,8 @@ require_once('src/controllers/contactpost_controller.php');
 require_once('src/controllers/signin_controller.php');
 require_once('src/controllers/signup_controller.php');
 require_once('src/controllers/addcomment_controller.php');
-require_once('src/controllers/signinreg_controller.php');
+require_once('src/controllers/signinoperation_controller.php');
+require_once('src/controllers/signupoperation_controller.php');
 
 use MyWebsite\Controllers\AddComment\AddComment;
 use MyWebsite\Controllers\Index\Index;
@@ -16,6 +17,8 @@ use MyWebsite\Controllers\Article\Article;
 use MyWebsite\Controllers\ContactPost\ContactPost;
 use MyWebsite\Controllers\SignIn\SignIn;
 use MyWebsite\Controllers\SignUp\SignUp;
+use MyWebsite\Controllers\SignInOperation\SignInOperation;
+use MyWebsite\Controllers\SignUpOperation\SignUpOperation;
 
 	try{
 	if (isset($_GET['action']) && $_GET['action'] !== '') {
@@ -28,8 +31,14 @@ use MyWebsite\Controllers\SignUp\SignUp;
 		elseif ($_GET['action'] === 'signin') {
 			(new SignIn())->signin();
 		}
+		elseif ($_GET['action'] === 'signInOperation') {
+			(new SignInOperation())->execute($_POST);
+		}
 		elseif ($_GET['action'] === 'signup') {
 			(new SignUp())->signup();
+		}
+		elseif ($_GET['action'] === 'signUpOperation') {
+			(new SignUpOperation())->execute($_POST);
 		}
 		elseif($_GET['action'] === 'article') {
 			if (isset($_GET['postID']) && $_GET['postID']>0){

@@ -7,8 +7,7 @@
 
 	<h1>Connexion</h1>
 
-    <form action="index.php?action=signinVer" method="POST">
-    <!-- <form action="../src/signin_config.php" method="post">  -->
+    <form action="index.php?action=signInOperation" method="POST"> 
     	<div class="tenpix">
         	<div>Email*</div>
             <input type="email" name="email" required autocomplete="off">
@@ -24,9 +23,10 @@
                 {
                     $err = htmlspecialchars($_GET['err']);
                     $message = match($err) {
-                    'password' => "<strong>Erreur</strong>, le mot de passe est incorrect",
-                    'email' => "<strong>Erreur</strong>, l'email n'est pas valide",
-                    'unknown' => "<strong>Erreur</strong>, aucun compte n'est inscrit avec cet email",
+                        'wrong' => "<strong>Erreur</strong>, les données du formulaire sont invalides.",
+                        'password' => "<strong>Erreur</strong>, le mot de passe est incorrect",
+                        'unknown' => "<strong>Erreur</strong>, aucun compte n'est inscrit avec cet email",
+                        'error' => "<strong>Erreur</strong>, impossible de vous connecter",
                 };
                  echo $message;
             }; 

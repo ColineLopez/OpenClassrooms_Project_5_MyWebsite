@@ -7,7 +7,7 @@
 
 	<h1>Inscription</h1>
 
-	<form action="../src/signup_config.php" method="post">   
+    <form action="index.php?action=signUpOperation" method="post">   
 		<div class="grid">
         <div class="element">Nom*</div>
         <div class="element">Prénom*</div>
@@ -26,7 +26,7 @@
         </div>
         <div class="tenpix">
         	<div>Confirmez votre mot de passe*</div>
-            <input type="password" name="password_retype" required autocomplete="off">
+            <input type="password" name="passwordConfirmation" required autocomplete="off">
         </div>
         <!-- Ajouter une case pour accepter les conditions générales -->
         <div>
@@ -35,13 +35,11 @@
                     {
                         $err = htmlspecialchars($_GET['err']);
                         $message = match($err) {
-                        'success' => "<strong>Succès</strong>, inscription réussie ! <a href='index.php'>Retour à la page d'Accueil</a>",
-                        'password' => "<strong>Erreur</strong>, le mot de passe est différent",
-                        'email' => "<strong>Erreur</strong>, l'email n'est pas valide",
-                        'email_length' => "<strong>Erreur</strong>, l'email est trop long",
-                        'firstname_length' => "<strong>Erreur</strong>, votre prénom est trop long",
-                        'lastname_length' => "<strong>Erreur</strong>, votre nom est trop long",
-                        'already' => "<strong>Erreur</strong>, un compte existe déjà à cette adresse",
+                            'wrong' => "<strong>Erreur</strong>, les données du formulaire sont invalides.",
+                            'success' => "<strong>Succès</strong>, inscription réussie ! <a href='index.php?action=signin'>Cliquez ici</a>  pour vous connecter.",
+                            'password' => "<strong>Erreur</strong>, le mot de passe est différent",
+                            'already' => "<strong>Erreur</strong>, un compte existe déjà à cette adresse",
+                            'error' => "<strong>Erreur</strong>, impossible de vous inscrire",
                     };
                      echo $message;
                 }; 
