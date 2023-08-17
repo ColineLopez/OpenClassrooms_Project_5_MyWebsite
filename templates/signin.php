@@ -1,23 +1,17 @@
 <?php $title = "Connexion"; ?>
-
 <?php ob_start(); ?>
-
-
 <div class="corps2">
-
 	<h1>Connexion</h1>
-
     <form action="index.php?action=signInOperation" method="POST"> 
-    	<div class="tenpix">
-        	<div>Email*</div>
+    	<p>
+        	<label for="email">Email* :</label>
             <input type="email" name="email" required autocomplete="off">
-        </div>
-        <div class="tenpix">
-        	<div>Mot de passe*</div>
+        </p>
+        <p>
+        	<label for='password'>Mot de passe* :</label>
             <input type="password" name="password" required autocomplete="off">
-        </div>
-
-        <div>
+        </p>
+        <p>
         <?php 
             if(isset($_GET['err']))
                 {
@@ -31,18 +25,14 @@
                  echo $message;
             }; 
         ?>
-            <button type="submit">Connexion</button>
-        </div>   
+        </p>
+        <p>
+          <input type="submit" value="Connexion">
+        </p> 
     </form>
-
     <p class="text-center">
     	<a href="index.php?action=signup">Je n'ai pas de compte, m'inscrire</a>
     </p>
-
 </div>
-
-
-
 <?php $content = ob_get_clean(); ?>
-
 <?php require('templates/layout.php'); ?>

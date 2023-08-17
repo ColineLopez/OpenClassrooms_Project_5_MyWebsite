@@ -1,6 +1,6 @@
 <?php
 
-namespace MyWebsite\Controllers\Article; 
+namespace MyWebsite\Controllers\Article\Article; 
 
 require_once('src/lib/database.php');
 require_once('src/model/post.php');
@@ -24,6 +24,6 @@ class Article
 		$commentRepository->connection = $connection;
 		$comments = $commentRepository->getComments($postID);
 
-		require('templates/article_template.php');
+		require('templates/article.php');
 	}
 }

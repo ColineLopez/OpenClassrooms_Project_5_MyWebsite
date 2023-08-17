@@ -19,7 +19,9 @@ class CommentRepository
 
 	public function getComments(string $postID): array
 	{
-		$statement = $this->connection->getConnection()->prepare('SELECT * FROM comments WHERE articleID = ? ORDER BY creationDate DESC');
+		$statement = $this->connection->getConnection()->prepare(
+			'SELECT * FROM comments WHERE articleID = ? ORDER BY creationDate DESC'
+		);
 		$statement->execute([$postID]);
 
 		$comments = [];
@@ -44,5 +46,4 @@ class CommentRepository
 
 		return ($affectedLines > 0);
 	}
-
 }

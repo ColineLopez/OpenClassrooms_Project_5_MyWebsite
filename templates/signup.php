@@ -1,35 +1,30 @@
 <?php $title = "Inscription"; ?>
-
 <?php ob_start(); ?>
-
-
 <div class="corps2">
-
 	<h1>Inscription</h1>
-
     <form action="index.php?action=signUpOperation" method="post">   
 		<div class="grid">
-        <div class="element">Nom*</div>
-        <div class="element">Prénom*</div>
+        <div class="element">Nom* :</div>
+        <div class="element">Prénom* :</div>
       </div>
       <div class="grid">
         <div class="element"><input class="nom_prenom" type="text" name="lastname" required autocomplete="off"></div>
         <div class="element"><input class="nom_prenom" type="text" name="firstname" required autocomplete="off"></div>
         </div>
-        <div class="tenpix">
-        	<div>Email*</div>
+        <p>
+        	<label for='email'>Email* :</label>
             <input type="email" name="email" required autocomplete="off">
-        </div>
-        <div class="tenpix">
-        	<div>Mot de passe*</div>
+        </p>
+        <p>
+        	<label for="password">Mot de passe* :</label>
             <input type="password" name="password" required autocomplete="off">
-        </div>
-        <div class="tenpix">
-        	<div>Confirmez votre mot de passe*</div>
+        </p>
+        <p>
+        	<label for="passwordConfirmation">Confirmez votre mot de passe* :</label>
             <input type="password" name="passwordConfirmation" required autocomplete="off">
-        </div>
+        </p>
         <!-- Ajouter une case pour accepter les conditions générales -->
-        <div>
+        <p>
         	<?php 
                 if(isset($_GET['err']))
                     {
@@ -44,11 +39,11 @@
                      echo $message;
                 }; 
             ?>
-            <button type="submit">Inscription</button>
-        </div>   
+        </p>
+        <p>
+            <input type="submit" value="Inscription">
+        </p>   
     </form>
 </div>
-
 <?php $content = ob_get_clean(); ?>
-
 <?php require('templates/layout.php'); ?>

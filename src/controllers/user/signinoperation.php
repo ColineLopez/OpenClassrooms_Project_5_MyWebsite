@@ -1,6 +1,6 @@
 <?php
 
-namespace MyWebsite\Controllers\SignInOperation;
+namespace MyWebsite\Controllers\User\SignInOperation;
 
 require_once('src/model/user.php');
 
@@ -17,8 +17,8 @@ class SignInOperation{
 		$password = null;
 
 		if(!empty($input['email']) && !empty($input['password'])) {
-			$email = $input['email'];
-			$password = $input['password'];
+			$email = htmlspecialchars($input['email']);
+			$password = htmlspecialchars($input['password']);
 
 		} else {
 			header('Location: index.php?action=signin&err=wrong');

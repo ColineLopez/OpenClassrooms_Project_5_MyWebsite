@@ -1,6 +1,6 @@
 <?php
 
-namespace MyWebsite\Controllers\SignUpOperation;
+namespace MyWebsite\Controllers\User\SignUpOperation;
 
 require_once('src/model/user.php');
 

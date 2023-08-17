@@ -1,6 +1,6 @@
 <?php
 
-namespace MyWebsite\Controllers\Articles;
+namespace MyWebsite\Controllers\Article\Articles;
 
 require_once('src/lib/database.php');
 require_once('src/model/post.php');
@@ -16,6 +16,6 @@ class Articles
 		$postRepository->connection = new DatabaseConnection();
 		$posts = $postRepository->getPosts();
 
-		require('templates/articles_template.php');
+		require('templates/articles.php');
 	}
 }

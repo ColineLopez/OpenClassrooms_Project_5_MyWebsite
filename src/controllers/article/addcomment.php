@@ -1,6 +1,6 @@
 <?php
 
-namespace MyWebsite\Controllers\AddComment;
+namespace MyWebsite\Controllers\Article\AddComment;
 
 require_once('src/lib/database.php');
 require_once('src/model/comment.php');
@@ -15,8 +15,8 @@ class AddComment
         $author = null;
         $comment = null;
         if(!empty($input['author']) && !empty($input['comment'])) {
-            $author = $input['author'];
-            $comment = $input['comment'];
+            $author = htmlspecialchars($input['author']);
+            $comment = htmlspecialchars($input['comment']);
 
         } else {
             throw new \Exception('Les données du formulaires sont invalides.');

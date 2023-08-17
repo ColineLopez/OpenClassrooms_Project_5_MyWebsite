@@ -29,5 +29,4 @@ class ContactRepository
 
 		return ($affectedLines > 0);
 	}
-
 }

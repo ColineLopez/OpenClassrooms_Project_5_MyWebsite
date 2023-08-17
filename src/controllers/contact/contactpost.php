@@ -1,6 +1,6 @@
 <?php
 
-namespace MyWebsite\Controllers\ContactPost;
+namespace MyWebsite\Controllers\Contact\ContactPost;
 
 require_once('src/model/contact.php');
 
@@ -17,22 +17,22 @@ class ContactPost{
 		$content = null;
 
 		if(!empty($input['lastname']) && !empty($input['firstname']) && !empty($input['email']) && !empty($input['content'])) {
-			$lastname = $input['lastname'];
-			$firstname = $input['firstname'];
-			$email = $input['email'];
-			$content = $input['content'];
+			$lastname = htmlspecialchars($input['lastname']);
+			$firstname = htmlspecialchars($input['firstname']);
+			$email = htmlspecialchars($input['email']);
+			$content = htmlspecialchars($input['content']);
 
 		} else {
-			throw new \Exception('Les données du formulaires sont invalides.');
+			header('Location: index.php?err=wrong');
 		}
 
 		$contactRepository = new ContactRepository();
 		$contactRepository->connection = new DatabaseConnection();
 		$success = $contactRepository->contactPost($lastname, $firstname, $email, $content);
 		if(!$success) {
-			throw new \Exception("Impossible d'envoyer votre demande de contact !");
+			header('Location: index.php?err=error');
 		} else {
-			header('Location: index.php');
+			header('Location: index.php?err=success');
 		}
 	}
 }

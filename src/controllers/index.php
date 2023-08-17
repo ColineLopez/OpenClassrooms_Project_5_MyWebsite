@@ -9,6 +9,6 @@ class Index
 {
 	public function index() 
 	{
-		require('templates/index_template.php');
+		require('templates/index.php');
 	}
 }
