@@ -16,7 +16,25 @@
         <li><a href="index.php">Accueil</a></li>
         <li><a href="index.php?action=articles">Articles</a></li>
         <li><a href="index.php#contact">Contact</a></li>
+        <?php
+        if (isset($_SESSION['user'])) {
+          ?>
+          <li><?php 
+          echo 'Bonjour ' . $_SESSION['user'];?></li>
+          <li><a href='index.php?action=logout'>Se Déconnecter</a></li>
+        <?php
+        } elseif (isset($_SESSION['admin'])) {
+          ?>
+          <li><?php 
+          echo 'Bonjour admin ' . $_SESSION['admin'];?></li>
+          <li><a href='index.php?action=logout'>Se Déconnecter</a></li>
+        <?php
+        } else {
+        ?>
         <li><a href="index.php?action=signin">Se connecter</a></li>
+        <?php 
+        } 
+        ?>
         <li><button class="mail" onclick="window.open('mailto:coline.llopez@gmail.com','_blank')"></button></li>
         <li><button class='github' onclick="window.open('https://github.com/ColineLopez', '_blank')"></button></li>
         <li><button class='linkedin' onclick="window.open('https://www.linkedin.com/in/coline-lopez-5250a7110/', '_blank')"></button></li>

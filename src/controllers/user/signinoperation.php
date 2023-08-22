@@ -32,7 +32,7 @@ class SignInOperation{
 			if(!$user) {
 				header('Location: index.php?action=signin&err=error');
 			} else {
-				$_SESSION['user'] = $user['firstname'] . $user['lastname'];
+				$_SESSION['user'] = $user['firstname']; //. $user['lastname'];
 				header('Location: index.php');
 			}
 		} else {
