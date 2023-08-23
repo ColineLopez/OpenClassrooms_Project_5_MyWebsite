@@ -1,3 +1,7 @@
+a {
+  text-decoration: none;
+}
+
 nav{
   margin:0;
   padding:0;
@@ -16,9 +20,15 @@ nav ul, footer ul{
 /*  font-size: 20px;*/
 }
 
-nav li, footer li{
+nav li{
   list-style-type:none;
   margin:15px;
+}
+
+footer li{
+  list-style-type:none;
+  margin-left:15px;
+  margin-right:15px;
 }
 
 nav a, footer a{
@@ -32,6 +42,28 @@ nav a:hover, footer a:hover{
   color:#778F6D;
 }
 
+
+.btn{
+  color:#FFFFFF;
+  border-radius:20px;
+  padding:8px 20px 8px 20px;
+  font-size:17px;
+  font-weight: 600;
+}
+
+.btn-green{
+  background-color:#638746;
+}
+
+.btn-green:hover{
+  background-color:#D59229;
+}
+
+.btn-orange{  
+  background-color:#C99642;
+}
+
+
 footer{
 /*  position:absolute;*/
 /*  bottom:0;*/
@@ -44,11 +76,20 @@ footer{
 }
 
 
-#banniere{
+#index-banniere{
 /*  margin:0;*/
   padding:0;
   height: 400px;
   background-image: url(../images/colorado.jpeg);
+  background-size: cover;
+  background-position: center;
+}
+
+#articles-banniere{
+/*  margin:0;*/
+  padding:0;
+  height: 400px;
+  background-image: url(../images/antelope-canyon1.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -60,7 +101,7 @@ body{
 h1{
   text-align: center;
   margin:auto;
-  font-size: 2em;
+  font-size: 2.2em;
   color:#FFFFFF;
 }
 
@@ -98,7 +139,6 @@ button:hover{
   box-shadow: 4px 2px 2px rgba(0,0,0,0.5);
 }
 
-
 form{
   text-align: left;
   width: 320px;
@@ -110,12 +150,12 @@ form input, form textarea{
   width:180px;
   border:none;
   padding-left:8px;
-  border-radius: 10px;
-  margin-bottom:10px;
+  border-radius: 5px;
+  margin-bottom:25px;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
-form input, form button{
-  height:30px;
-  
+form input{
+  height:40px;
 }
 form textarea{
   height:90px;
@@ -128,6 +168,19 @@ form button{
   width:50%;
   border:none;
 }
+::placeholder{
+  color:#FFFFFF;
+  text-shadow: 1px 1px 2px #333333;
+}
+.submit{
+  width:315px;
+  height:40px;
+}
+
+.bold{
+  font-weight: 600;
+}
+
 
 .nom_prenom{
   width:140px;
@@ -143,8 +196,11 @@ form button{
 
 .element{
   margin: auto;
-  margin-bottom:10px;
   width:50%;
+}
+
+.element-spaced{
+  padding-left: 30px;
 }
 
 .tenpix{
@@ -157,8 +213,6 @@ section{
   width: 50%;
   height: 400px;
   margin:auto;
-/*  padding: 10px;*/
-/*  border: 3px dashed #1c87c9;*/
   vertical-align: middle;
 }
 
@@ -206,4 +260,106 @@ section{
   transition-duration: 0s;
   box-shadow: 0px 0px 0px rgba(0,0,0,0);
   cursor:pointer;
+}
+
+
+.green{
+  color:#638746;
+}
+
+h2{
+  text-align:center;
+
+}
+
+.uppercase{
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+
+.lined{
+  padding:0px 48px;
+}
+
+
+.grid-three{
+  display: flex; 
+  flex-flow:row;
+  justify-content: center;
+  align-items: center;
+}
+
+hr{
+  flex:1;
+  height:5px; 
+  border-width:0;
+  color:#C99642;
+  background-color:#C99642;
+}
+
+
+.big-white{
+  color:#FFFFFF;
+  background-color: #FFFFFF;
+  text-shadow: 1px 1px 2px #333333;
+}
+
+.small-beige{
+  height:2px; 
+  border-width:0;
+  color:#FDF7EF;
+  background-color:#FDF7EF;
+}
+
+.short{
+  width:4%;
+  text-align:left;
+  margin-left:0;
+}
+
+.picture{
+  padding:0;
+  height: 400px;
+  background-image: url(../images/dev.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.margin-content{
+  margin:50px;
+}
+
+.corps{
+  padding:5px;
+}
+
+.corps-yellow{
+  background-color:#E0BE6C;
+}
+
+.grid-grow{
+  display:flex;
+  flex-grow: 4;
+  justify-content: center;
+}
+
+.item{
+  padding:15px;
+}
+
+.white-shadow{
+  color:#FFFFFF;
+  text-shadow: 1px 1px 2px #333333;
+}
+
+.news{
+  background-color: #F6F8F5;
+  margin:20px 40px 20px 40px;
+/*  margin-right:40px;*/
+  padding-bottom:10px;
+}
+
+.art-img{
+  width:350px;
 }
