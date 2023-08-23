@@ -35,11 +35,12 @@ class PostRepository
 		$post->postID = $row['articleID'];
 		$post->chapo = $row['chapo'];
 		$post->author = $row['name'];
+		$post->authorID = $row['authorID'];
 
 		return $post;
 	}
 
-	public function getPosts():array 
+	public function getPosts(): array 
 	{
 		$statement = $this->connection->getConnection()->query(
 			'SELECT * FROM articles LEFT JOIN author ON author.authorID=articles.authorID ORDER BY creationDate DESC 
@@ -54,9 +55,40 @@ class PostRepository
 			$post->postID = $row['articleID'];
 			$post->chapo = $row['chapo'];
 			$post->author = $row['name'];
+			$post->authorID = $row['authorID'];
 
 			$posts[] = $post;
 		}
 		return $posts;
+	}
+
+	public function createArticle(string $authorID, string $title, string $chapo, string $content, string $image): bool
+	{
+		$statement = $this->connection->getConnection()->prepare(
+			'INSERT INTO articles(authorID, title, chapo, content, creationDate, image) VALUES (?, ?, ?, ?, NOW(), ?)'
+		);
+		$affectedLines = $statement->execute([(float)$authorID, $title, $chapo, $content, $image]);
+
+		return ($affectedLines > 0);
+	}
+
+	public function modifyArticle(string $postID, string $authorID, string $title, string $chapo, string $content): bool
+	{
+		$statement = $this->connection->getConnection()->prepare(
+			'UPDATE articles SET authorID = ?, title = ?, chapo = ?, content = ?, creationDate = NOW() WHERE articleID = ?'
+		);
+		$affectedLines = $statement->execute([(float)$authorID, $title, $chapo, $content, $postID]);
+
+		return ($affectedLines > 0);
+	}
+
+	public function deleteArticle(string $postID): bool
+	{
+		$statement = $this->connection->getConnection()->prepare(
+			'DELETE FROM articles WHERE articleID = ?'
+		);
+		$affectedLines = $statement->execute([(float)$postID]);
+
+		return ($affectedLines > 0);
 	}
 }

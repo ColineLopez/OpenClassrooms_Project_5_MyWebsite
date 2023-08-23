@@ -1,5 +1,12 @@
 <?php $title = "Articles"; ?>
 <?php ob_start(); ?>
+<?php
+if (isset($_SESSION['admin'])) {
+?>
+<a href='index.php?action=articleWriting'>Rédiger un article</a>
+<?php
+}
+?>
 <div class="corps2">
 	<h1>Articles</h1>
 	<?php 

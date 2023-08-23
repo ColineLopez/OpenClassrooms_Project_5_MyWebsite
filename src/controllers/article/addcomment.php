@@ -19,7 +19,7 @@ class AddComment
             $comment = htmlspecialchars($input['comment']);
 
         } else {
-            throw new \Exception('Les données du formulaires sont invalides.');
+            throw new \Exception('Les données du formulaire sont invalides.');
         }
         
         $commentRepository = new CommentRepository();
