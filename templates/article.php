@@ -1,5 +1,13 @@
 <?php $title = $post->title; ?>
 <?php ob_start(); ?>
+<?php
+if (isset($_SESSION['admin'])) {
+?>
+<a href='index.php?action=articleEdition&postID=<?php echo htmlspecialchars($post->postID); ?>'>Modifier cet article</a>
+<a href='index.php?action=articleDeletion&postID=<?php echo htmlspecialchars($post->postID); ?>'>Supprimer cet article</a>
+<?php
+}
+?>
 <div class="corps1">
 	<div class="news">
 		<h1><?php echo htmlspecialchars($post->title); ?></h1>
@@ -18,7 +26,7 @@
 </div>
 <div class="corps2">
 	<h3>Ajouter un commentaire</h3>
-	<form action="index.php?action=addComment&postID=<?= $post->postID ?>" method="POST">
+	<form action="index.php?action=addComment&postID=<?php echo htmlspecialchars($post->postID); ?>" method="POST">
         <p>
         	<label for="author">Nom* :</label>
       		<input class="contact" type="text" name="author" required autocomplete="off">
