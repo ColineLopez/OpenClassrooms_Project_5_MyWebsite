@@ -42,35 +42,35 @@
             <p class='small'>+33 6 59 07 78 49</p>            
         </div>
         <div class="element vertical-center margin-content">
-                <form id="contact" action="index.php?action=contactPost" method="POST">
-                      <div class="grid">
-                        <div class="element"><input class="nom_prenom corps-yellow" type="text" name="lastname" placeholder="Nom" required autocomplete="off"></div>
-                        <div class="element"><input class="nom_prenom corps-yellow" type="text" name="firstname" placeholder="Prénom" required autocomplete="off"></div>
-                      </div>
-                    <div>
-                      <input class="contact corps-yellow" type="email" name="email" placeholder="Email" required>
-                    </div>
-                    <div>
-                      <textarea class="contact corps-yellow" name="content" placeholder="Message" required autocomplete="off"></textarea>
-                    </div>
-                    <div>
-                        <?php 
-                            if(isset($_GET['err']))
-                                {
-                                    $err = htmlspecialchars($_GET['err']);
-                                    $message = match($err) {
-                                    'success' => "<strong>Merci</strong>, votre demande de contact a bien été envoyée !",
-                                    'wrong' => "<strong>Erreur</strong>, les données du formulaire sont invalides.",
-                                    'error' => "<strong>Erreur</strong>, nous ne pouvons pas soumettre votre demande de contact.",
-                                };
-                                echo $message;
-                            }; 
-                        ?>
-                    </div>
-                    <div>
-                      <input class="submit btn-green white-shadow bold" type="submit" value="Envoyer">
-                    </div>
-                </form>
+            <form id="contact" action="index.php?action=contactPost" method="POST">
+                  <div class="grid">
+                    <div class="element"><input class="nom_prenom corps-yellow" type="text" name="lastname" placeholder="Nom" required autocomplete="off"></div>
+                    <div class="element"><input class="nom_prenom corps-yellow" type="text" name="firstname" placeholder="Prénom" required autocomplete="off"></div>
+                  </div>
+                <div>
+                  <input class="contact corps-yellow" type="email" name="email" placeholder="Email" required>
+                </div>
+                <div>
+                  <textarea class="contact corps-yellow" name="content" placeholder="Message" required autocomplete="off"></textarea>
+                </div>
+                <div>
+                    <?php 
+                        if(isset($_GET['err']))
+                            {
+                                $err = htmlspecialchars($_GET['err']);
+                                $message = match($err) {
+                                'success' => "<strong>Merci</strong>, votre demande de contact a bien été envoyée !",
+                                'wrong' => "<strong>Erreur</strong>, les données du formulaire sont invalides.",
+                                'error' => "<strong>Erreur</strong>, nous ne pouvons pas soumettre votre demande de contact.",
+                            };
+                            echo $message;
+                        }; 
+                    ?>
+                </div>
+                <div>
+                  <input class="submit btn-green white-shadow bold" type="submit" value="Envoyer">
+                </div>
+            </form>
         </div>
     </div>   
 </div>

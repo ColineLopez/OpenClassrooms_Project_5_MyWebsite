@@ -39,6 +39,7 @@
         <li><button class='github' onclick="window.open('https://github.com/ColineLopez', '_blank')"></button></li>
         <li><button class='linkedin' onclick="window.open('https://www.linkedin.com/in/coline-lopez-5250a7110/', '_blank')"></button></li>
       </ul>
+      <hr class="small-beige">
     </nav>
    	<?= $content ?>
     <footer>

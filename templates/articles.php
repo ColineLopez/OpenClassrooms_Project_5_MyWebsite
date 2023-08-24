@@ -12,7 +12,6 @@ if (isset($_SESSION['admin'])) {
         <h1 class='white-shadow'>Les articles<br><hr class='big-white'><br><a class='btn btn-orange' href='index.php?action=articleWriting'>Rédiger un article</a></h1>
     </section>
 </div>
-
 <div class="corps corps-white">
 	<div class='grid-three'>
         <hr style='margin-left:50px'>
