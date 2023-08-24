@@ -36,6 +36,7 @@ class PostRepository
 		$post->chapo = $row['chapo'];
 		$post->author = $row['name'];
 		$post->authorID = $row['authorID'];
+		$post->image = $row['image'];
 
 		return $post;
 	}
@@ -56,6 +57,7 @@ class PostRepository
 			$post->chapo = $row['chapo'];
 			$post->author = $row['name'];
 			$post->authorID = $row['authorID'];
+			$post->image = $row['image'];
 
 			$posts[] = $post;
 		}
