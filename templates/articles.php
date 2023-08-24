@@ -9,7 +9,17 @@ if (isset($_SESSION['admin'])) {
 ?>
 <div id="articles-banniere">
     <section>
-        <h1 class='white-shadow'>Les articles<br><hr class='big-white'><br><a class='btn btn-orange' href='index.php?action=articleWriting'>Rédiger un article</a></h1>
+        <h1 class='white-shadow'>
+        	Les articles
+        	<br>
+        	<hr class='big-white'>
+        	<br>
+        	<?php
+        	if (isset($_SESSION['user'])) {
+        		echo "<a class='btn btn-orange' href='index.php?action=articleWriting'>Rédiger un article</a>";
+        	}
+        	?>	
+        </h1>
     </section>
 </div>
 <div class="corps corps-white">

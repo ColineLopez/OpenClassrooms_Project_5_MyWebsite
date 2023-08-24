@@ -1,6 +1,6 @@
 <?php $title = "Inscription"; ?>
 <?php ob_start(); ?>
-<div class="corps corps-white">
+<div class="corps news">
     <div class="grid">
         <div class="element vertical-center margin-content">     
             <h4 class='uppercase green'>Inscription</h4>
@@ -9,11 +9,10 @@
             <p>En vous inscrivant, vous pourrez vous aussi être rédacteur !</p>        
         </div>
         <div class="element vertical-center margin-content">
-            <form action="index.php?action=signUpOperation" method="post">   
-                <div class="grid">
-                <div class="element"><input class="nom_prenom corps-yellow" type="text" name="lastname" placeholder="Nom" required autocomplete="off"></div>
-                <div class="element"><input class="nom_prenom corps-yellow" type="text" name="firstname" placeholder="Prénom" required autocomplete="off"></div>
-                </div>
+            <form action="index.php?action=signUpOperation" method="post">  
+                <p> 
+                    <input class="contact corps-yellow" type="text" name="name" placeholder="Nom" required autocomplete="off">
+                </p>
                 <p>
                     <input type="email" name="email" class="corps-yellow contact" placeholder="Email" required autocomplete="off">
                 </p>

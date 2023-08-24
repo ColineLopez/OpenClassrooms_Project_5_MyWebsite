@@ -1,16 +1,23 @@
 <?php $title = $post->title; ?>
 <?php ob_start(); ?>
-<?php
-if (isset($_SESSION['admin'])) {
-?>
-<a href='index.php?action=articleEdition&postID=<?php echo htmlspecialchars($post->postID); ?>'>Modifier cet article</a>
-<a href='index.php?action=articleDeletion&postID=<?php echo htmlspecialchars($post->postID); ?>'>Supprimer cet article</a>
-<?php
-}
-?>
+
 <div class='article-banniere' style='background: url(<?php echo $post->image;?>);background-size: cover;background-position: center;'>
 	<section>
-        <h1 class='white-shadow'><?php echo htmlspecialchars($post->title); ?><hr class='big-white'></h1>
+        <h1 class='white-shadow'>
+        	<?php echo htmlspecialchars($post->title); ?>
+        	<hr class='big-white'>
+	        <?php
+			if (isset($_SESSION['user']) && $_SESSION['user_admin']) {
+			?>
+			<a class='btn btn-orange' href='index.php?action=articleEdition&postID=<?php echo htmlspecialchars($post->postID); ?>'>Modifier cet article</a> 
+			<a class='btn btn-orange' href='index.php?action=articleDeletion&postID=<?php echo htmlspecialchars($post->postID); ?>'>Supprimer cet article</a>
+			<?php
+			} elseif (isset($_SESSION['user']) && $_SESSION['user_email'] == $post->email) { ?>
+				<a class='btn btn-orange' href='index.php?action=articleEdition&postID=<?php echo htmlspecialchars($post->postID); ?>'>Modifier cet article</a> 
+			<?php
+			}
+			?>
+        </h1>
     </section>
 </div>	
 <div class="corps corps-white margin-content">

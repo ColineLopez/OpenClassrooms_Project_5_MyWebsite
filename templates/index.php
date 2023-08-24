@@ -5,7 +5,7 @@
         <h1 class='white-shadow'>Développeuse PHP / Symfony - Création de sites web<br><br><a class='btn btn-orange' href='index.php#apropos'>En savoir plus</a></h1>
     </section>
 </div>
-<div class='corps corps-white'>
+<div id='apropos' class='corps corps-white'>
     <div class='grid-three'>
         <hr style='margin-left:50px'>
         <h2 class='lined uppercase green'>À propos</h2>

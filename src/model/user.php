@@ -8,11 +8,12 @@ use MyWebsite\Lib\Database\DatabaseConnection;
 
 class User
 {
-	public string $lastname;
-	public string $firstname;
+	public string $name;
+	// public string $firstname;
 	public string $email;
 	public string $password;
 	public string $ip;
+	public string $admin;
 }
 
 class UserRepository 
@@ -32,13 +33,13 @@ class UserRepository
 		return $row  == 0 ? FALSE : TRUE;
 	}
 
-	public function addUser(string $lastname, string $firstname, string $email, string $password, string $ip): bool
+	public function addUser(string $name, string $email, string $password, string $ip): bool
 	{
 		$statement = $this->connection->getConnection()->prepare(
-			'INSERT INTO users(lastname, firstname, email, password, ip) VALUES (?, ?, ?, ?, ?)'
+			'INSERT INTO users(name, email, password, ip, admin) VALUES (?, ?, ?, ?, 0)'
 		);
 
-		$affectedLines = $statement->execute([$lastname, $firstname, $email, $password, $ip]);
+		$affectedLines = $statement->execute([$name, $email, $password, $ip]);
 
 		return($affectedLines > 0);
 	}
@@ -59,5 +60,17 @@ class UserRepository
 		} else {
 			header('Location: index.php?action=signin&err=password');
 		}
+	}
+
+	public function isAdmin(string $email): bool
+	{
+		$statement = $this->connection->getConnection()->prepare(
+			'SELECT admin FROM users WHERE email = ?'
+		);
+
+		$statement->execute([$email]);
+		$data = $statement->fetch();
+
+		return $data['admin'] == 0 ? FALSE : TRUE;
 	}
 }

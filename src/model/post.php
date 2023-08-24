@@ -13,7 +13,7 @@ class Post
 	public string $content;
 	public string $postID;
 	public string $chapo;
-	public string $author;
+	public string $name;
 }
 
 class PostRepository 
@@ -23,7 +23,7 @@ class PostRepository
 	public function getPost(string $postID): Post 
 	{
 		$statement = $this->connection->getConnection()->prepare(
-			'SELECT * FROM articles LEFT JOIN author ON author.authorID=articles.authorID WHERE articleID= ? '
+			'SELECT * FROM articles LEFT JOIN users ON articles.email = users.email WHERE articleID= ? '
 		);
 		$statement->execute([$postID]);
 
@@ -34,8 +34,8 @@ class PostRepository
 		$post->content = $row['content'];
 		$post->postID = $row['articleID'];
 		$post->chapo = $row['chapo'];
+		$post->email = $row['email'];
 		$post->author = $row['name'];
-		$post->authorID = $row['authorID'];
 		$post->image = $row['image'];
 
 		return $post;
@@ -44,7 +44,7 @@ class PostRepository
 	public function getPosts(): array 
 	{
 		$statement = $this->connection->getConnection()->query(
-			'SELECT * FROM articles LEFT JOIN author ON author.authorID=articles.authorID ORDER BY creationDate DESC 
+			'SELECT * FROM articles LEFT JOIN users ON articles.email = users.email ORDER BY creationDate DESC 
 			');
 
 		$posts = [];
@@ -55,8 +55,8 @@ class PostRepository
 			$post->content = $row['content'];
 			$post->postID = $row['articleID'];
 			$post->chapo = $row['chapo'];
+			$post->email = $row['email'];
 			$post->author = $row['name'];
-			$post->authorID = $row['authorID'];
 			$post->image = $row['image'];
 
 			$posts[] = $post;
@@ -64,12 +64,12 @@ class PostRepository
 		return $posts;
 	}
 
-	public function createArticle(string $authorID, string $title, string $chapo, string $content, string $image): bool
+	public function createArticle(string $email, string $title, string $chapo, string $content, string $image): bool
 	{
 		$statement = $this->connection->getConnection()->prepare(
-			'INSERT INTO articles(authorID, title, chapo, content, creationDate, image) VALUES (?, ?, ?, ?, NOW(), ?)'
+			'INSERT INTO articles(email, title, chapo, content, creationDate, image) VALUES (?, ?, ?, ?, NOW(), ?)'
 		);
-		$affectedLines = $statement->execute([(float)$authorID, $title, $chapo, $content, $image]);
+		$affectedLines = $statement->execute([$email, $title, $chapo, $content, $image]);
 
 		return ($affectedLines > 0);
 	}

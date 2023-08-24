@@ -20,14 +20,8 @@
         if (isset($_SESSION['user'])) {
           ?>
           <li><?php 
-          echo 'Bonjour ' . $_SESSION['user'];?></li>
-          <li><a href='index.php?action=logout'>Se Déconnecter</a></li>
-        <?php
-        } elseif (isset($_SESSION['admin'])) {
-          ?>
-          <li><?php 
-          echo 'Bonjour admin ' . $_SESSION['admin'];?></li>
-          <li><a href='index.php?action=logout'>Se Déconnecter</a></li>
+          echo '<b>Bonjour, ' . $_SESSION['user'] . '</b>';?></li>
+          <li><a class='btn btn-green white-shadow' href='index.php?action=logout'>Se Déconnecter</a></li>
         <?php
         } else {
         ?>

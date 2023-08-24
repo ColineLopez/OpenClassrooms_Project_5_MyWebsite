@@ -60,7 +60,6 @@ use MyWebsite\Controllers\User\AdminOperation\AdminOperation;
 			(new SignIn())->signin();
 		} elseif ($_GET['action'] === 'signInOperation') {
 			(new SignInOperation())->execute($_POST);
-			// session_start();
 		} elseif ($_GET['action'] === 'signup') {
 			(new SignUp())->signup();
 		} elseif ($_GET['action'] === 'signUpOperation') {
@@ -69,7 +68,6 @@ use MyWebsite\Controllers\User\AdminOperation\AdminOperation;
 			(new Admin())->admin();
 		} elseif ($_GET['action'] === 'adminOperation') {
 			(new AdminOperation())->execute($_POST);
-			// session_start();
 		} elseif ($_GET['action'] === 'logout') {
 			session_destroy();
 			header('Location: index.php');

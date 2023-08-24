@@ -11,8 +11,7 @@ class SignInOperation{
 
 	public function execute(array $input) 
 	{
-		$lastname = null;
-		$firstname = null;
+		$name = null;
 		$email = null;
 		$password = null;
 
@@ -32,7 +31,9 @@ class SignInOperation{
 			if(!$user) {
 				header('Location: index.php?action=signin&err=error');
 			} else {
-				$_SESSION['user'] = $user['firstname']; //. $user['lastname'];
+				$_SESSION['user'] = $user['name'];
+				$_SESSION['user_email'] = $user['email'];
+				$_SESSION['user_admin'] = $userRepository->isAdmin($email);
 				header('Location: index.php');
 			}
 		} else {

@@ -12,16 +12,18 @@ class AddArticle
 {
     public function execute(array $input) 
     {
-        $authorID = null;
+        $email = null;
         $title = null;
         $chapo = null;
         $content = null;
         $image = null;
-        if(!empty($input['authorID']) && !empty($input['title']) && !empty($input['chapo']) && !empty($input['content'])) {
-            $authorID = htmlspecialchars($input['authorID']);
+        // $email = null;
+        if(!empty($input['email']) && !empty($input['title']) && !empty($input['chapo']) && !empty($input['content'])) {
+            $email = htmlspecialchars($input['email']);
             $title = htmlspecialchars($input['title']);
             $chapo = htmlspecialchars($input['chapo']);
             $content = htmlspecialchars($input['content']);
+            // $author = $_SESSION['user'] . ' ' . $_SESSION['user_lastname'];
             if(!empty($input['image'])) {
                 $image = htmlspecialchars($input['image']);
             } else {
@@ -34,7 +36,7 @@ class AddArticle
         
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();
-        $success = $postRepository->createArticle($authorID, $title, $chapo, $content, $image);
+        $success = $postRepository->createArticle($email, $title, $chapo, $content, $image);
         if (!$success) {
             throw new \Exception("Impossible d'ajouter l'article !");
         } else {
