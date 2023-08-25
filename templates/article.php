@@ -48,13 +48,13 @@
 	<div class=news>
 		<form action="index.php?action=addComment&postID=<?php echo htmlspecialchars($post->postID); ?>" method="POST">
 	        <p>
-	      		<input class="contact" type="text" name="author" placeholder="Nom" required autocomplete="off">
+	      		<input class="contact gray-border" type="text" name="author" placeholder="Nom" required autocomplete="off">
 	  		</p>
 	    	<p>
-	      		<textarea class="contact" name="comment" placeholder="Message" required autocomplete="off"></textarea>
+	      		<textarea class="contact gray-border" name="comment" placeholder="Message" required autocomplete="off"></textarea>
 	 		</p>
 	 		<p>
-	  			<input class="btn btn-orange center" type="submit" value="Envoyer">
+	  			<input class="submit btn-green white-shadow bold" type="submit" value="Envoyer">
 			</p>
 		</form>
 	</div>

@@ -11,4 +11,8 @@ class Index
 	{
 		require('templates/index.php');
 	}
+	public function error()
+	{
+		require('templates/error.php');
+	}
 }

@@ -16,6 +16,7 @@
     	<div class="element vertical-center margin-content">
 			<form action="index.php?action=addArticle" method="POST">
 		        <p>
+		        	<label for="email" class="green bold">Email de l'auteur</label>
 		        	<input type="email" class='contact corps-yellow' name="email" required autocomplete="off" value="<?php echo $_SESSION['user_email']; ?>" <?php if(!$_SESSION['user_admin']) {?>readonly<?php } ?>>
 		  		</p>
 		    	<p>

@@ -1,12 +1,5 @@
 <?php $title = "Articles"; ?>
 <?php ob_start(); ?>
-<?php
-if (isset($_SESSION['admin'])) {
-?>
-<!-- <a href='index.php?action=articleWriting'>Rédiger un article</a> -->
-<?php
-}
-?>
 <div id="articles-banniere">
     <section>
         <h1 class='white-shadow'>
@@ -51,13 +44,23 @@ if (isset($_SESSION['admin'])) {
 					?>
 				</p>
 			</div>
-			<div class='element vertical-center margin-content'>
-				<img class='art-img' src="<?php echo $post->image; ?>">
+			<div class='element vertical-center margin-content art-img' style='background: url(<?php echo $post->image;?>);background-size: cover;background-position: center;'>
 			</div>
 		</div>
 		<p class='center'>
 			<a class='btn btn-orange' href='index.php?action=article&postID=<?php echo $post->postID; ?>')>Lire plus ></a>
+			<?php
+			if ((isset($_SESSION['user']) && $_SESSION['user_email'] == $post->email) || (isset($_SESSION['user']) && $_SESSION['user_admin'])) { ?>
+				<a class='btn btn-orange' href='index.php?action=articleEdition&postID=<?php echo htmlspecialchars($post->postID); ?>'>Modifier cet article</a> 
+			<?php 
+			} 
+			if (isset($_SESSION['user']) && $_SESSION['user_admin']) { ?>
+				<a class='btn btn-orange' href='index.php?action=articleDeletion&postID=<?php echo htmlspecialchars($post->postID); ?>'>Supprimer cet article</a>
+			<?php
+			}
+			?>
 		</p>
+		<br>
 	</div>
 </div>
 	<?php 

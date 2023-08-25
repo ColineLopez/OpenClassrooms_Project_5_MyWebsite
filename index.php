@@ -110,7 +110,8 @@ use MyWebsite\Controllers\User\AdminOperation\AdminOperation;
 			}
 		}
 		else {
-			throw new Exception("Erreur 404 : La page que vous recherchez n'existe pas.");
+			// throw new Exception("Erreur 404 : La page que vous recherchez n'existe pas.");
+			(new Index())->error();
 		} 
 	} else {
 		(new Index())->index();

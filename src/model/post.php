@@ -74,12 +74,12 @@ class PostRepository
 		return ($affectedLines > 0);
 	}
 
-	public function modifyArticle(string $postID, string $authorID, string $title, string $chapo, string $content): bool
+	public function modifyArticle(string $postID, string $email, string $title, string $chapo, string $content): bool
 	{
 		$statement = $this->connection->getConnection()->prepare(
-			'UPDATE articles SET authorID = ?, title = ?, chapo = ?, content = ?, creationDate = NOW() WHERE articleID = ?'
+			'UPDATE articles SET email = ?, title = ?, chapo = ?, content = ?, creationDate = NOW() WHERE articleID = ?'
 		);
-		$affectedLines = $statement->execute([(float)$authorID, $title, $chapo, $content, $postID]);
+		$affectedLines = $statement->execute([$email, $title, $chapo, $content, $postID]);
 
 		return ($affectedLines > 0);
 	}

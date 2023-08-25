@@ -5,7 +5,6 @@ a {
 nav{
   margin:0;
   padding:0;
-/*  border-bottom: 1px solid #d9d9d9;*/
 }
 
 nav ul{
@@ -17,7 +16,6 @@ nav ul, footer ul{
   justify-content:end;
   align-items: center;
   margin:10px;
-/*  font-size: 20px;*/
 }
 
 nav li{
@@ -42,6 +40,11 @@ nav a:hover, footer a:hover{
   color:#778F6D;
 }
 
+.footer-container{
+  text-align: center;
+  padding:10px;
+  background-color: #778F6D;
+}
 
 .btn{
   color:#FFFFFF;
@@ -51,16 +54,28 @@ nav a:hover, footer a:hover{
   font-weight: 600;
 }
 
+.btn:hover{
+  background-color:#FFFFFF;
+  text-shadow:0px 0px 0px #333333;
+  font-weight: 500;
+}
+
 .btn-green{
   background-color:#638746;
 }
 
 .btn-green:hover{
-  background-color:#D59229;
+  border: 2px solid #638746;
+  color:#638746;
 }
 
 .btn-orange{  
   background-color:#C99642;
+}
+
+.btn-orange:hover{
+  border: 2px solid #C99642;
+  color: #C99642;
 }
 
 #logo{
@@ -82,7 +97,6 @@ nav a:hover, footer a:hover{
 }
 
 #articles-banniere{
-/*  margin:0;*/
   padding:0;
   height: 400px;
   background-image: url(../images/antelope-canyon1.jpg);
@@ -92,6 +106,7 @@ nav a:hover, footer a:hover{
 
 body{
   font-family: 'IBM Plex Sans', sans-serif;
+/*  color:#333333;*/
 }
 
 h1{
@@ -105,41 +120,10 @@ h1{
   text-align: center;
 }
 
-.corps1{
-background-color:#D59229;
-  padding:20px;
-}
-
-.corps2{
-  background-color:#CAB48B;
-  padding:20px;
-  text-align: center;
-}
-
-
-.footer-container{
-  text-align: center;
-  padding:10px;
-  background-color: #778F6D;
-}
-
-button{
-    background:#59873C;
-    border:none;
-    border-radius:10px;
-    height:30px;
-    }
-
-button:hover{
-  transition-duration: 0.2s;
-  box-shadow: 4px 2px 2px rgba(0,0,0,0.5);
-}
-
 form{
   text-align: left;
   width: 320px;
   margin:auto;
-/*  border:solid 1px;*/
   padding:5px;
 }
 form input, form textarea{
@@ -147,13 +131,15 @@ form input, form textarea{
   border:none;
   padding-left:8px;
   border-radius: 5px;
-  margin-bottom:25px;
+  margin-bottom:15px;
   font-family: 'IBM Plex Sans', sans-serif;
 }
 form input{
+  margin-top:5px;
   height:40px;
 }
 form textarea{
+  margin-top:5px;
   height:90px;
 }
 
@@ -194,14 +180,6 @@ form button{
   width:50%;
 }
 
-.element-spaced{
-  padding-left: 30px;
-}
-
-.tenpix{
-  margin-bottom:10px;
-}
-
 section{
   display: flex;
   justify-content: center;
@@ -210,7 +188,6 @@ section{
   margin:auto;
   vertical-align: middle;
 }
-
 
 .mail{
   border-radius: 0px;
@@ -240,7 +217,6 @@ section{
   box-shadow: 0px 0px 0px rgba(0,0,0,0);
   cursor:pointer;
 }
-
 
 .linkedin{
   border-radius: 0px;
@@ -278,6 +254,18 @@ h2{
   flex-flow:row;
   justify-content: center;
   align-items: center;
+}
+
+button{
+    background:#59873C;
+    border:none;
+    border-radius:10px;
+    height:30px;
+    }
+
+button:hover{
+  transition-duration: 0.2s;
+  box-shadow: 4px 2px 2px rgba(0,0,0,0.5);
 }
 
 hr{
@@ -357,14 +345,15 @@ hr{
 }
 
 .art-img{
-  width:350px;
+  width:400px;
+  height:300px;
 }
-
+/*
 .fit-picture{
   max-width:100%;
-/*  height:500px;*/
+/*  height:500px;
 background-size:cover;
-}
+}*/
 
 .article-banniere{
   padding:0;
@@ -381,4 +370,14 @@ background-size:cover;
 
 .underline{
   text-decoration: underline;
+}
+
+.border{
+  width:300px;
+  height:300px;
+  border: 2px solid black; 
+}
+
+.gray-border{
+  border: 2px solid #EFF3EE;
 }
