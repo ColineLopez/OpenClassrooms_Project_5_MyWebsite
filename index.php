@@ -65,7 +65,7 @@ use MyWebsite\Controllers\User\AdminOperation\AdminOperation;
 		} elseif ($_GET['action'] === 'signUpOperation') {
 			(new SignUpOperation())->execute($_POST);
 		} elseif ($_GET['action'] === 'admin') {
-			(new Admin())->admin();
+			(new Admin())->execute();
 		} elseif ($_GET['action'] === 'adminOperation') {
 			(new AdminOperation())->execute($_POST);
 		} elseif ($_GET['action'] === 'logout') {

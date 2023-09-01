@@ -1,6 +1,5 @@
 <?php $title = $post->title; ?>
 <?php ob_start(); ?>
-
 <div class='article-banniere' style='background: url(<?php echo $post->image;?>);background-size: cover;background-position: center;'>
 	<section>
         <h1 class='white-shadow'>
@@ -67,22 +66,24 @@
 	</div>
 		<?php 
 			foreach ($comments as $comment){
+				if($comment->status!=1){
 		?>
-			<h4 class='uppercase green'>
-			<?php 
-			echo htmlspecialchars($comment->author); 
-			?>
-			</h4>
-		    <hr class='short'>
-		    <p>
-				<?php echo htmlspecialchars($comment->content); ?>		
-			</p>
-			<p class='align-right bold'> 
-				<?php echo "Le " . htmlspecialchars($comment->creationDate); ?>
-			</p>
-			<hr class="small-gray">
-			<br>
-		<?php 
+				<h4 class='uppercase green'>
+				<?php 
+				echo htmlspecialchars($comment->author); 
+				?>
+				</h4>
+			    <hr class='short'>
+			    <p>
+					<?php echo htmlspecialchars($comment->content); ?>		
+				</p>
+				<p class='align-right bold'> 
+					<?php echo "Le " . htmlspecialchars($comment->creationDate); ?>
+				</p>
+				<hr class="small-gray">
+				<br>
+			<?php
+				} 
 			}
 		?>
 	<br>

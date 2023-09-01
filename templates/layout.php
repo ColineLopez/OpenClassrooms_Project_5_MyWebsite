@@ -43,7 +43,12 @@
         <div class="element">
           <ul>
             <li><a href="index.php?action=terms">Mentions Légales</a></li>
-            <li><a href="index.php?action=admin">Administration</a></li>
+            <?php
+            if (isset($_SESSION['user']) && $_SESSION['user_admin']) { ?>
+              <li><a href="index.php?action=admin">Administration</a></li>
+          <?php 
+          }
+          ?>
           </ul>
         </div>
       </div>

@@ -30,6 +30,7 @@ class CommentRepository
 			$comment->author = $row['author'];
 			$comment->creationDate = $row['creationDate'];
 			$comment->content = $row['content'];
+			$comment->status = $row['status'];
 
 			$comments[] = $comment;
 		}
@@ -46,4 +47,28 @@ class CommentRepository
 
 		return ($affectedLines > 0);
 	}
+
+	public function comments2Moderate(): array
+	{
+		$statement = $this->connection->getConnection()->prepare(
+			'SELECT * FROM comments WHERE status = 1 ORDER BY creationDate DESC'
+		);
+		$statement->execute();
+
+		$comments = [];
+		while($row = $statement->fetch()){
+			$comment = new Comment();
+			$comment->postID = $row['articleID'];
+			$comment->author = $row['author'];
+			$comment->creationDate = $row['creationDate'];
+			$comment->content = $row['content'];
+			$comment->status = $row['status'];
+
+			$comments[] = $comment;
+		}
+
+		return $comments;
+	}
+
+
 }

@@ -232,6 +232,52 @@ section{
   cursor:pointer;
 }
 
+.link{
+  border-radius: 0px;
+  width:32px;
+  height:32px;
+  background: url("../images/link_1.png") no-repeat;
+}
+.link:hover{
+  border-radius: 0px;
+  width:32px;
+  height:32px;
+  background: url("../images/link_2.png") no-repeat;
+  box-shadow: 0px 0px 0px rgba(0,0,0,0);
+  cursor:pointer;
+}
+
+.true{
+  border-radius: 0px;
+  width:32px;
+  height:32px;
+  background: url("../images/true_1.png") no-repeat;
+}
+.true:hover{
+  border-radius: 0px;
+  width:32px;
+  height:32px;
+  background: url("../images/true_2.png") no-repeat;
+  box-shadow: 0px 0px 0px rgba(0,0,0,0);
+  cursor:pointer;
+}
+
+.false{
+  border-radius: 0px;
+  width:32px;
+  height:32px;
+  background: url("../images/false_1.png") no-repeat;
+}
+.false:hover{
+  border-radius: 0px;
+  width:32px;
+  height:32px;
+  background: url("../images/false_2.png") no-repeat;
+  box-shadow: 0px 0px 0px rgba(0,0,0,0);
+  cursor:pointer;
+}
+
+
 .green{
   color:#638746;
 }
@@ -254,6 +300,20 @@ h2{
   flex-flow:row;
   justify-content: center;
   align-items: center;
+}
+
+
+.grid-four{
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 3fr 1fr 1fr;
+  grid-gap: 10px;
+  grid-auto-rows: minmax(50px, auto);
+}
+
+.gridfive-mid{
+  text-align: center;
+  grid-column: 5/7;
+  grid-row:1;
 }
 
 button{
