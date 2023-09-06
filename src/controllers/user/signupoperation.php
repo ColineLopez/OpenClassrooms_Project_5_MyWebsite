@@ -11,15 +11,13 @@ class SignUpOperation
 {
 	public function execute(array $input) 
 	{
-		$lastname = null;
-		$firstname = null;
+		$name = null;
 		$email = null;
 		$password = null;
 		$passwordConfirmation = null;
 
-		if(!empty($input['lastname']) && !empty($input['firstname']) && !empty($input['email']) && !empty($input['password']) && !empty($input['passwordConfirmation'])) {
-			$lastname = htmlspecialchars($input['lastname']);
-			$firstname = htmlspecialchars($input['firstname']);
+		if(!empty($input['name']) && !empty($input['email']) && !empty($input['password']) && !empty($input['passwordConfirmation'])) {
+			$name = htmlspecialchars($input['name']);
 			$email = htmlspecialchars($input['email']);
 			$password = htmlspecialchars($input['password']);
 			$passwordConfirmation = htmlspecialchars($input['passwordConfirmation']);
@@ -35,7 +33,8 @@ class SignUpOperation
 		} elseif ($password != $passwordConfirmation) {
 			header('Location: index.php?action=signup&err=password');
 		} else {
-			$user = $userRepository->addUser($lastname, $firstname, $email, $password, $ip);
+			$password = hash('sha256', $password);
+			$user = $userRepository->addUser($name, $email, $password, $ip);
 			if(!$user) {
 				header('Location : index.php?action=signup&err=error');
 			} else {

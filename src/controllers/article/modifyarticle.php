@@ -12,12 +12,12 @@ class ModifyArticle
 {
     public function execute(string $postID, array $input) 
     {
-        $authorID = null;
+        $email = null;
         $title = null;
         $chapo = null;
         $content = null;
-        if(!empty($input['authorID']) && !empty($input['title']) && !empty($input['chapo']) && !empty($input['content'])) {
-            $authorID = htmlspecialchars($input['authorID']);
+        if(!empty($input['email']) && !empty($input['title']) && !empty($input['chapo']) && !empty($input['content'])) {
+            $email = htmlspecialchars($input['email']);
             $title = htmlspecialchars($input['title']);
             $chapo = htmlspecialchars($input['chapo']);
             $content = htmlspecialchars($input['content']);
@@ -28,11 +28,11 @@ class ModifyArticle
         
         $postRepository = new PostRepository();
         $postRepository->connection = new DatabaseConnection();
-        $success = $postRepository->modifyArticle($postID, $authorID, $title, $chapo, $content);
+        $success = $postRepository->modifyArticle($postID, $email, $title, $chapo, $content);
         if (!$success) {
             throw new \Exception("Impossible de modifier l'article !");
         } else {
-            header('Location: index.php?action=articles');
+            header('Location: index.php?action=articles&err=modif');
         }
     }
 }

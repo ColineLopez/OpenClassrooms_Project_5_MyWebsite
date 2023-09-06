@@ -5,7 +5,7 @@
         <h1 class='white-shadow'>Développeuse PHP / Symfony - Création de sites web<br><br><a class='btn btn-orange' href='index.php#apropos'>En savoir plus</a></h1>
     </section>
 </div>
-<div class='corps corps-white'>
+<div id='apropos' class='corps corps-white'>
     <div class='grid-three'>
         <hr style='margin-left:50px'>
         <h2 class='lined uppercase green'>À propos</h2>
@@ -27,7 +27,7 @@
 <div class='corps corps-yellow'>
     <div class="grid-grow">
         <div class='item'><p class='white-shadow'>Vous souhaitez en savoir plus sur moi ? N'hésitez pas à jeter un coup d'oeil sur mon parcours !</p></div>
-        <div class='item'><p><a href='' class='btn btn-orange white-shadow'>Voir mon CV</a></p></div>
+        <div class='item'><p><a href='files/LopezColineCV.pdf' class='btn btn-orange white-shadow' target='_blank'>Voir mon CV</a></p></div>
     </div>
 </div>
 <div class="corps corps-white">

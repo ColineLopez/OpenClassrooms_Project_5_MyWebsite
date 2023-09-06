@@ -28,7 +28,7 @@ class AddComment
         if (!$success) {
             throw new \Exception("Impossible d'ajouter le commentaire !");
         } else {
-            header('Location: index.php?action=article&postID=' . $postID);
+            header('Location: index.php?action=article&postID=' . $postID ."&err=comm");
         }
     }
 }

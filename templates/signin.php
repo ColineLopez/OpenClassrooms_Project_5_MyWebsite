@@ -1,6 +1,6 @@
 <?php $title = "Connexion"; ?>
 <?php ob_start(); ?>
-<div class="corps corps-white">
+<div class="corps news">
     <div class="grid">
         <div class="element vertical-center margin-content">     
             <h4 class='uppercase green'>Connexion</h4>
