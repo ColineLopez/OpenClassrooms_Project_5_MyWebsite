@@ -29,7 +29,5 @@ class ArticleDeletion
 		$postRepository->connection = $connection;
 
 		$post = $postRepository->deleteArticle($postID);
-		
-		// require('templates/articledeletion.php');
 	}
 }

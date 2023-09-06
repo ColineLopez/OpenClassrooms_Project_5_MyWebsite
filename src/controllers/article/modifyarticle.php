@@ -32,7 +32,7 @@ class ModifyArticle
         if (!$success) {
             throw new \Exception("Impossible de modifier l'article !");
         } else {
-            header('Location: index.php?action=articles');
+            header('Location: index.php?action=articles&err=modif');
         }
     }
 }

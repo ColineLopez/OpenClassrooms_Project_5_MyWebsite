@@ -110,7 +110,6 @@ use MyWebsite\Controllers\User\Admin\Admin;
 			}
 		}
 		else {
-			// throw new Exception("Erreur 404 : La page que vous recherchez n'existe pas.");
 			(new Index())->error();
 		} 
 	} else {

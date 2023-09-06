@@ -3,7 +3,6 @@
 namespace MyWebsite\Controllers\User\Admin;
 
 require_once('src/lib/database.php');
-// require_once('src/model/post.php');
 require_once('src/model/comment.php');
 
 use MyWebsite\Lib\Database\DatabaseConnection;
@@ -23,7 +22,3 @@ class Admin
 		require('templates/admin.php');
 	}
 }
-
-
-// use MyWebsite\Model\Post\PostRepository;
-

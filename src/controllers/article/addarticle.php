@@ -17,13 +17,11 @@ class AddArticle
         $chapo = null;
         $content = null;
         $image = null;
-        // $email = null;
         if(!empty($input['email']) && !empty($input['title']) && !empty($input['chapo']) && !empty($input['content'])) {
             $email = htmlspecialchars($input['email']);
             $title = htmlspecialchars($input['title']);
             $chapo = htmlspecialchars($input['chapo']);
             $content = htmlspecialchars($input['content']);
-            // $author = $_SESSION['user'] . ' ' . $_SESSION['user_lastname'];
             if(!empty($input['image'])) {
                 $image = htmlspecialchars($input['image']);
             } else {
@@ -40,7 +38,7 @@ class AddArticle
         if (!$success) {
             throw new \Exception("Impossible d'ajouter l'article !");
         } else {
-            header('Location: index.php?action=articles');
+            header('Location: index.php?action=articles&err=add');
         }
     }
 }

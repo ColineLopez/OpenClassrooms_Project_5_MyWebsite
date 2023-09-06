@@ -21,7 +21,16 @@
         <h2 class='lined uppercase green'>Tous les articles</h2>
         <hr style='margin-right:50px'>
     </div>
-	<?php 
+    <?php 
+        if(isset($_GET['err']))
+            {
+                $err = htmlspecialchars($_GET['err']);
+                $message = match($err) {
+                'add' => "<strong>Merci</strong>, votre article a bien été ajouté!",
+                'modif' => "<strong>Merci</strong>, l'article a bien été modifié !",
+            };
+            echo $message;
+        }; 
 		foreach ($posts as $post){
 	?>
 	<div class="news">
