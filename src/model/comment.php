@@ -15,6 +15,11 @@ class Comment
 
 class CommentRepository 
 {
+
+	private const WAITING = 1;
+	private const VALID = 2;
+	private const REFUSED = 3;
+
 	public DatabaseConnection $connection;
 
 	public function getComments(string $postID): array
@@ -75,7 +80,7 @@ class CommentRepository
 	public function validateComment(float $commentID): bool
 	{
 		$statement = $this->connection->getConnection()->prepare(
-			'UPDATE comments SET status=2 WHERE commentID = ?'
+			'UPDATE comments SET status="'.self::VALID.'" WHERE commentID = ?'
 		);
 		$affectedLines = $statement->execute([$commentID]);
 
@@ -85,11 +90,12 @@ class CommentRepository
 	public function rejectComment(float $commentID): bool
 	{
 		$statement = $this->connection->getConnection()->prepare(
-			'UPDATE comments SET status=3 WHERE commentID = ?'
+			'UPDATE comments SET status="'.self::REFUSED.'" WHERE commentID = ?'
 		);
+	
 		$affectedLines = $statement->execute([$commentID]);
-
-		return ($affectedLines > 0);
+	
+		return($affectedLines > 0);
 	}
 
 

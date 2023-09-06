@@ -31,22 +31,22 @@
     </div>
 </div>
 <div class='corps news '>
-    <div class='grid-four bold uppercase center margin-content'>
-        <div class="gridone">Article</div>
-        <div class="gridtwo">Date</div>
-        <div class="gridthree">Auteur</div>
-        <div class="gridfour">Commentaire</div>
-        <div class="gridfive">Validation</div>
+    <div class='grid-five bold uppercase center margin-content'>
+        <div>Article</div>
+        <div>Date</div>
+        <div>Auteur</div>
+        <div>Commentaire</div>
+        <div>Validation</div>
     </div>
     <?php
     foreach ($comments as $comment) { 
     ?>
-    <div class='grid-four center margin-content'>
-            <div class="gridone"><button class="link" onclick="window.open('index.php?action=article&postID=<?php echo htmlspecialchars($comment->postID); ?>')"></button></div>
+    <div class='grid-five center margin-content'>
+            <div><button class="link" onclick="window.open('index.php?action=article&postID=<?php echo htmlspecialchars($comment->postID); ?>')"></button></div>
             <div class="bold"><?php echo htmlspecialchars($comment->creationDate); ?></div> 
             <div class="green bold"><?php echo htmlspecialchars($comment->author); ?></div>
             <div><?php echo htmlspecialchars($comment->content); ?></div>
-            <div class="gridone">
+            <div>
                 <form class="moderation" action="index.php?action=moderateComment" method="post">
                     <input type='hidden' name='commentID' value=<?php echo htmlspecialchars($comment->commentID); ?>>
                     <input type="submit" name="true" value="" class="true transition">

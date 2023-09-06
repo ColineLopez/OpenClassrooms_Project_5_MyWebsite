@@ -23,7 +23,7 @@ class PostRepository
 	public function getPost(string $postID): Post 
 	{
 		$statement = $this->connection->getConnection()->prepare(
-			'SELECT * FROM articles LEFT JOIN users ON articles.email = users.email WHERE articleID= ? '
+			'SELECT * FROM articles LEFT JOIN users ON articles.email = users.email WHERE articleID = ? '
 		);
 		$statement->execute([$postID]);
 
