@@ -66,7 +66,7 @@
 	</div>
 		<?php 
 			foreach ($comments as $comment){
-				if($comment->status!=1){
+				if($comment->status==2){
 		?>
 				<h4 class='uppercase green'>
 				<?php 

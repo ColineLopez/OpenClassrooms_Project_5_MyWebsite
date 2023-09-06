@@ -11,12 +11,12 @@ require_once('src/controllers/article/modifyarticle.php');
 require_once('src/controllers/article/articledeletion.php');
 require_once('src/controllers/article/article.php');
 require_once('src/controllers/article/addcomment.php');
+require_once('src/controllers/article/commentmoderation.php');
 require_once('src/controllers/user/signin.php');
 require_once('src/controllers/user/signup.php');
 require_once('src/controllers/user/signinoperation.php');
 require_once('src/controllers/user/signupoperation.php');
 require_once('src/controllers/user/admin.php');
-require_once('src/controllers/user/adminoperation.php');
 
 use MyWebsite\Controllers\Index\Index;
 use MyWebsite\Controllers\Contact\ContactPost\ContactPost;
@@ -28,12 +28,12 @@ use MyWebsite\Controllers\Article\ModifyArticle\ModifyArticle;
 use MyWebsite\Controllers\Article\ArticleDeletion\ArticleDeletion;
 use MyWebsite\Controllers\Article\Article\Article;
 use MyWebsite\Controllers\Article\AddComment\AddComment;
+use MyWebsite\Controllers\Article\CommentModeration\CommentModeration;
 use MyWebsite\Controllers\User\SignIn\SignIn;
 use MyWebsite\Controllers\User\SignInOperation\SignInOperation;
 use MyWebsite\Controllers\User\SignUp\SignUp;
 use MyWebsite\Controllers\User\SignUpOperation\SignUpOperation;
 use MyWebsite\Controllers\User\Admin\Admin;
-use MyWebsite\Controllers\User\AdminOperation\AdminOperation;
 
 	try{
 	if (isset($_GET['action']) && $_GET['action'] !== '') {
@@ -66,8 +66,8 @@ use MyWebsite\Controllers\User\AdminOperation\AdminOperation;
 			(new SignUpOperation())->execute($_POST);
 		} elseif ($_GET['action'] === 'admin') {
 			(new Admin())->execute();
-		} elseif ($_GET['action'] === 'adminOperation') {
-			(new AdminOperation())->execute($_POST);
+		} elseif ($_GET['action'] === 'moderateComment') {
+			(new CommentModeration())->execute($_POST);
 		} elseif ($_GET['action'] === 'logout') {
 			session_destroy();
 			header('Location: index.php');

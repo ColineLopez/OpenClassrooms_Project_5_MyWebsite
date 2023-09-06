@@ -27,7 +27,7 @@
 <div class='corps corps-yellow'>
     <div class="grid-grow">
         <div class='item'><p class='white-shadow'>Vous souhaitez en savoir plus sur moi ? N'hésitez pas à jeter un coup d'oeil sur mon parcours !</p></div>
-        <div class='item'><p><a href='' class='btn btn-orange white-shadow'>Voir mon CV</a></p></div>
+        <div class='item'><p><a href='files/LopezColineCV.pdf' class='btn btn-orange white-shadow' target='_blank'>Voir mon CV</a></p></div>
     </div>
 </div>
 <div class="corps corps-white">

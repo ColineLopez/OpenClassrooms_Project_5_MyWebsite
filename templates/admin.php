@@ -16,6 +16,19 @@
         <h2 class='lined green'>Modération des commentaires</h2>
         <hr style='margin-right:50px'>
     </div>
+    <div class="center uppercase">
+        <?php 
+        if(isset($_GET['err']))
+            {
+                $err = htmlspecialchars($_GET['err']);
+                $message = match($err) {
+                    'accept' => "<strong class='green'>Le commentaire a été publié.</strong>",
+                    'refuse' => "<strong class='orange'>Le commentaire ne sera pas publié.</strong>",
+            };
+             echo $message;
+        }; 
+        ?>
+    </div>
 </div>
 <div class='corps news '>
     <div class='grid-four bold uppercase center margin-content'>
@@ -23,7 +36,7 @@
         <div class="gridtwo">Date</div>
         <div class="gridthree">Auteur</div>
         <div class="gridfour">Commentaire</div>
-        <div class="gridfive-mid">Validation</div>
+        <div class="gridfive">Validation</div>
     </div>
     <?php
     foreach ($comments as $comment) { 
@@ -33,8 +46,13 @@
             <div class="bold"><?php echo htmlspecialchars($comment->creationDate); ?></div> 
             <div class="green bold"><?php echo htmlspecialchars($comment->author); ?></div>
             <div><?php echo htmlspecialchars($comment->content); ?></div>
-            <div class="gridone"><button class="true" onclick=""></button></div>
-            <div class="gridone"><button class="false" onclick=""></button></div>
+            <div class="gridone">
+                <form class="moderation" action="index.php?action=moderateComment" method="post">
+                    <input type='hidden' name='commentID' value=<?php echo htmlspecialchars($comment->commentID); ?>>
+                    <input type="submit" name="true" value="" class="true transition">
+                    <input type="submit" name="false" value="" class="false transition">
+                </form>
+            </div>
     </div>
     <?php
     }

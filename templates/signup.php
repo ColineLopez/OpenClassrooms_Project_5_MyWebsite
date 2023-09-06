@@ -9,7 +9,7 @@
             <p>En vous inscrivant, vous pourrez vous aussi être rédacteur !</p>        
         </div>
         <div class="element vertical-center margin-content">
-            <form action="index.php?action=signUpOperation" method="post">  
+            <form action="index.php?action=signUpOperation" method="post"> 
                 <p> 
                     <input class="contact corps-yellow" type="text" name="name" placeholder="Nom" required autocomplete="off">
                 </p>
@@ -22,7 +22,9 @@
                 <p>
                     <input type="password" class="corps-yellow contact" placeholder="Confirmation du mot de passe" name="passwordConfirmation" required autocomplete="off">
                 </p>
-                <!-- Ajouter une case pour accepter les conditions générales -->
+                <p>
+                    <input class="corps-yellow contact" type="checkbox" name="formTermes" value="Yes" required>J'accepte les <a class="green" href="index.php?action=cgu">conditions générales d'utilisations</a>.
+                </p>
                 <p>
                     <?php 
                         if(isset($_GET['err']))

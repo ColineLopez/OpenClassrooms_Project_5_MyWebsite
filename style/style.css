@@ -305,15 +305,17 @@ h2{
 
 .grid-four{
   display: grid;
-  grid-template-columns: 1fr 2fr 2fr 3fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr 2fr 3fr 1fr;
   grid-gap: 10px;
   grid-auto-rows: minmax(50px, auto);
 }
 
-.gridfive-mid{
-  text-align: center;
-  grid-column: 5/7;
-  grid-row:1;
+.moderation{
+  width:70px;
+}
+
+.transition:hover{
+  transition-duration: 0.2s;
 }
 
 button{

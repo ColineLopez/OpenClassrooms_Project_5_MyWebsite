@@ -9,7 +9,6 @@ use MyWebsite\Lib\Database\DatabaseConnection;
 class User
 {
 	public string $name;
-	// public string $firstname;
 	public string $email;
 	public string $password;
 	public string $ip;

@@ -27,6 +27,7 @@ class CommentRepository
 		$comments = [];
 		while($row = $statement->fetch()){
 			$comment = new Comment();
+			$comment->commentID = $row['commentID'];
 			$comment->author = $row['author'];
 			$comment->creationDate = $row['creationDate'];
 			$comment->content = $row['content'];
@@ -58,6 +59,7 @@ class CommentRepository
 		$comments = [];
 		while($row = $statement->fetch()){
 			$comment = new Comment();
+			$comment->commentID = $row['commentID'];
 			$comment->postID = $row['articleID'];
 			$comment->author = $row['author'];
 			$comment->creationDate = $row['creationDate'];
@@ -68,6 +70,26 @@ class CommentRepository
 		}
 
 		return $comments;
+	}
+
+	public function validateComment(float $commentID): bool
+	{
+		$statement = $this->connection->getConnection()->prepare(
+			'UPDATE comments SET status=2 WHERE commentID = ?'
+		);
+		$affectedLines = $statement->execute([$commentID]);
+
+		return ($affectedLines > 0);
+	}
+
+	public function rejectComment(float $commentID): bool
+	{
+		$statement = $this->connection->getConnection()->prepare(
+			'UPDATE comments SET status=3 WHERE commentID = ?'
+		);
+		$affectedLines = $statement->execute([$commentID]);
+
+		return ($affectedLines > 0);
 	}
 
 
