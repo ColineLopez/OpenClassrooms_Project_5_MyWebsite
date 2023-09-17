@@ -80,7 +80,7 @@ class CommentRepository
 	public function validateComment(float $commentID): bool
 	{
 		$statement = $this->connection->getConnection()->prepare(
-			'UPDATE comments SET status="'.self::VALID.'" WHERE commentID = ?'
+			'UPDATE comments SET status="'.self::VALID.'",  moderationDate=NOW() WHERE commentID = ?'
 		);
 		$affectedLines = $statement->execute([$commentID]);
 
@@ -90,13 +90,11 @@ class CommentRepository
 	public function rejectComment(float $commentID): bool
 	{
 		$statement = $this->connection->getConnection()->prepare(
-			'UPDATE comments SET status="'.self::REFUSED.'" WHERE commentID = ?'
+			'UPDATE comments SET status="'.self::REFUSED.'", moderationDate=NOW() WHERE commentID = ?'
 		);
 	
 		$affectedLines = $statement->execute([$commentID]);
 	
 		return($affectedLines > 0);
 	}
-
-
 }
