@@ -31,11 +31,11 @@
                             {
                                 $err = htmlspecialchars($_GET['err']);
                                 $message = match($err) {
-                                    'wrong' => "<strong>Erreur</strong>, les données du formulaire sont invalides.",
-                                    'success' => "<strong>Succès</strong>, inscription réussie ! <a href='index.php?action=signin'>Cliquez ici</a>  pour vous connecter.",
-                                    'password' => "<strong>Erreur</strong>, le mot de passe est différent",
-                                    'already' => "<strong>Erreur</strong>, un compte existe déjà à cette adresse",
-                                    'error' => "<strong>Erreur</strong>, impossible de vous inscrire",
+                                    'wrong' => "<p class='orange'><strong>Erreur</strong>, les données du formulaire sont invalides.</p>",
+                                    'success' => "<p class='green'><strong>Succès</strong>, inscription réussie ! <a href='index.php?action=signin'>Cliquez ici</a>  pour vous connecter.</p>",
+                                    'password' => "<p class='orange'><strong>Erreur</strong>, le mot de passe est différent.</p>",
+                                    'already' => "<p class='orange'><strong>Erreur</strong>, un compte existe déjà à cette adresse.</p>",
+                                    'error' => "<p class='orange'><strong>Erreur</strong>, impossible de vous inscrire.</p>",
                             };
                              echo $message;
                         }; 

@@ -12,10 +12,10 @@
         <p>Attention, si vous cliquez sur oui, cette action est irréversible.</p> 
 		<br><br>
 		<div class='grid'>
-			<div class='element'>
+			<div class='element gridmedia'>
 				<a class='btn btn-orange' href="index.php?action=deleteArticle&postID=<?php echo htmlspecialchars($post->postID); ?>">Oui, supprimer cet article</a>
 			</div>
-			<div class='element'>
+			<div class='element gridmedia'>
 				<a class='btn btn-orange' href="index.php?action=articles">Non, retourner à la page des articles</a>
 			</div>
 		</div>

@@ -32,6 +32,7 @@ class ContactPost{
 		if(!$success) {
 			header('Location: index.php?err=error');
 		} else {
+			$contactRepository->sendMail($lastname, $firstname, $email, $content);
 			header('Location: index.php?err=success');
 		}
 	}

@@ -43,16 +43,6 @@
     	<h2 class='lined green'>Ajouter un commentaire</h2>
     	<hr style='margin-right:50px'>
 	</div>
-	<?php 
-        if(isset($_GET['err']))
-            {
-                $err = htmlspecialchars($_GET['err']);
-                $message = match($err) {
-                'comm' => "<strong>Merci</strong>, votre commentaire a bien été transmis à notre équipe de modération.",
-            };
-            echo $message;
-        }; 
-    ?>
 	<div class=news>
 		<form action="index.php?action=addComment&postID=<?php echo htmlspecialchars($post->postID); ?>" method="POST">
 	        <p>
@@ -64,6 +54,16 @@
 	 		<p>
 	  			<input class="submit btn-green white-shadow bold" type="submit" value="Envoyer">
 			</p>
+			<?php 
+	        if(isset($_GET['err']))
+	            {
+	                $err = htmlspecialchars($_GET['err']);
+	                $message = match($err) {
+	                'comm' => "<p class='green'><strong>Merci</strong>, votre commentaire a bien été transmis à notre équipe de modération.</p>",
+		            };
+		            echo $message;
+		        }; 
+		    ?>
 		</form>
 	</div>
 </div>

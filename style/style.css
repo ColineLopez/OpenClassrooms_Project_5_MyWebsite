@@ -443,3 +443,27 @@ background-size:cover;
 .gray-border{
   border: 2px solid #EFF3EE;
 }
+
+.orange{
+  color:#C7633F;
+}
+
+@media (max-width: 600px) {
+    nav ul, footer ul {
+       flex-direction: column;
+    }
+    .grid, .grid-grow{
+      flex-direction: column;
+    }
+    .grid-five, .gridmedia{
+      display:flex;
+      flex-direction: column;
+    }
+    .gridmedia > a{
+      margin:5px;
+    }
+    .media{
+      width:300px;
+/*      height:400px;*/
+    }
+}

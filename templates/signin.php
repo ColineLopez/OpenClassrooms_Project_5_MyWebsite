@@ -25,10 +25,10 @@
                         {
                             $err = htmlspecialchars($_GET['err']);
                             $message = match($err) {
-                                'wrong' => "<strong>Erreur</strong>, les données du formulaire sont invalides.",
-                                'password' => "<strong>Erreur</strong>, le mot de passe est incorrect",
-                                'unknown' => "<strong>Erreur</strong>, aucun compte n'est inscrit avec cet email",
-                                'error' => "<strong>Erreur</strong>, impossible de vous connecter",
+                                'wrong' => "<p class='orange'><strong>Erreur</strong>, les données du formulaire sont invalides.</p>",
+                                'password' => "<p class='orange'><strong>Erreur</strong>, le mot de passe est incorrect.</p>",
+                                'unknown' => "<p class='orange'><strong>Erreur</strong>, aucun compte n'est inscrit avec cet email.</p>",
+                                'error' => "<p class='orange'><strong>Erreur</strong>, impossible de vous connecter.</p>",
                         };
                          echo $message;
                     }; 

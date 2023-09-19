@@ -22,8 +22,8 @@
             {
                 $err = htmlspecialchars($_GET['err']);
                 $message = match($err) {
-                    'accept' => "<strong class='green'>Le commentaire a été publié.</strong>",
-                    'refuse' => "<strong class='orange'>Le commentaire ne sera pas publié.</strong>",
+                    'accept' => "<p class='green bold'>Le commentaire a été publié.</p>",
+                    'refuse' => "<p class='orange bold'>Le commentaire ne sera pas publié.</p>",
             };
              echo $message;
         }; 

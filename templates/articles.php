@@ -26,8 +26,8 @@
             {
                 $err = htmlspecialchars($_GET['err']);
                 $message = match($err) {
-                'add' => "<strong>Merci</strong>, votre article a bien été ajouté!",
-                'modif' => "<strong>Merci</strong>, l'article a bien été modifié !",
+                'add' => "<p class='green margin-content'><strong>Merci</strong>, votre article a bien été ajouté!</p>",
+                'modif' => "<p class='green margin-content'><strong>Merci</strong>, l'article a bien été modifié !</p>",
             };
             echo $message;
         }; 
@@ -53,10 +53,10 @@
 					?>
 				</p>
 			</div>
-			<div class='element vertical-center margin-content art-img' style='background: url(<?php echo $post->image;?>);background-size: cover;background-position: center;'>
+			<div class='element vertical-center margin-content art-img media' style='background: url(<?php echo $post->image;?>);background-size: cover;background-position: center;'>
 			</div>
 		</div>
-		<p class='center'>
+		<p class='center gridmedia'>
 			<a class='btn btn-orange' href='index.php?action=article&postID=<?php echo $post->postID; ?>')>Lire plus ></a>
 			<?php
 			if ((isset($_SESSION['user']) && $_SESSION['user_email'] == $post->email) || (isset($_SESSION['user']) && $_SESSION['user_admin'])) { ?>
