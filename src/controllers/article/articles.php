@@ -10,7 +10,7 @@ use MyWebsite\Model\Post\PostRepository;
 
 class Articles
 {
-	public function execute()
+	public function execute() : void
 	{
 		$postRepository = new PostRepository();
 		$postRepository->connection = new DatabaseConnection();

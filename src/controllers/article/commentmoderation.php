@@ -10,7 +10,7 @@ use MyWebsite\Model\Comment\CommentRepository;
 
 class CommentModeration
 {
-    public function execute(array $input) 
+    public function execute(array $input)  : void 
     {
         $commentID = null;
 

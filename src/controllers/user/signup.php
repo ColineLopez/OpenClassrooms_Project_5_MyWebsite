@@ -9,7 +9,7 @@ use MyWebsite\Model\Sign\SignRepository;
 
 class SignUp
 {
-	public function signup() 
+	public function signup() : void
 	{
 		require('templates/signup.php');
 	}

@@ -11,7 +11,7 @@ use MyWebsite\Model\Comment\CommentRepository;
 
 class Admin
 {
-	public function execute() 
+	public function execute()  : void
 	{
 		$connection = new DatabaseConnection();
 

@@ -10,7 +10,7 @@ use MyWebsite\Model\Post\PostRepository;
 
 class ModifyArticle
 {
-    public function execute(string $postID, array $input) 
+    public function execute(string $postID, array $input) : void
     {
         $email = null;
         $title = null;

@@ -12,7 +12,7 @@ use MyWebsite\Model\Comment\CommentRepository;
 
 class Article
 {
-	public function execute(string $postID)
+	public function execute(string $postID) : void
 	{
 		$connection = new DatabaseConnection();
 

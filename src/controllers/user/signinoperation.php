@@ -9,7 +9,7 @@ use MyWebsite\Model\User\UserRepository;
 
 class SignInOperation{
 
-	public function execute(array $input) 
+	public function execute(array $input) : void
 	{
 		$name = null;
 		$email = null;

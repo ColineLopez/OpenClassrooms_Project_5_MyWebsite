@@ -57,8 +57,9 @@ class CommentRepository
 	public function comments2Moderate(): array
 	{
 		$statement = $this->connection->getConnection()->prepare(
-			'SELECT * FROM comments WHERE status = 1 ORDER BY creationDate DESC'
+			'SELECT * FROM comments WHERE :status ORDER BY creationDate DESC'
 		);
+		$statement->bindValue(':status', self::WAITING, \PDO::PARAM_INT); 
 		$statement->execute();
 
 		$comments = [];

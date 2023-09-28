@@ -10,7 +10,7 @@ use MyWebsite\Model\Post\PostRepository;
 
 class ArticleDeletion
 {
-	public function execute(string $postID)
+	public function execute(string $postID) : void
 	{
 		$connection = new DatabaseConnection();
 
@@ -21,7 +21,7 @@ class ArticleDeletion
 		require('templates/articledeletion.php');
 	}
 
-	public function delete(string $postID)
+	public function delete(string $postID) : void
 	{
 		$connection = new DatabaseConnection();
 

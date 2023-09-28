@@ -10,7 +10,7 @@ use MyWebsite\Model\Post\PostRepository;
 
 class AddArticle
 {
-    public function execute(array $input) 
+    public function execute(array $input) : void
     {
         $email = null;
         $title = null;

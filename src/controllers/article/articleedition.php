@@ -10,7 +10,7 @@ use MyWebsite\Model\Post\PostRepository;
 
 class ArticleEdition
 {
-	public function execute(string $postID)
+	public function execute(string $postID) : void
 	{
 		$connection = new DatabaseConnection();
 

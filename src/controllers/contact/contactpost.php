@@ -9,7 +9,7 @@ use MyWebsite\Model\Contact\ContactRepository;
 
 class ContactPost{
 
-	public function execute(array $input) 
+	public function execute(array $input) : void
 	{
 		$lastname = null;
 		$firstname = null;

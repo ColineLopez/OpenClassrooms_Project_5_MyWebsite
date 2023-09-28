@@ -7,11 +7,11 @@ require_once('src/model/post.php');
 
 class Index
 {
-	public function index() 
+	public function index() : void
 	{
 		require('templates/index.php');
 	}
-	public function error()
+	public function error() : void
 	{
 		require('templates/error.php');
 	}
