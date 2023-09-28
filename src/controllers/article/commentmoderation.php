@@ -28,8 +28,7 @@ class CommentModeration
                 header('Location: index.php?action=admin&err=refuse');
             } 
         } else {
-                var_dump($_POST);
-                // throw new \Exception('Les données sont invalides.');
+                throw new \Exception('Les données sont invalides.');
         }
     }
 }

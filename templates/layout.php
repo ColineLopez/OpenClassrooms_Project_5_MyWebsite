@@ -3,7 +3,7 @@
   <head>
   	<meta charset="utf-8" /> 
   	<title><?= $title ?></title>
-  	<link rel="icon" type="image/png" href="../images/logo.png" />
+  	<link rel="icon" type="image/png" href="favicon.png" />
   	<link href="../style/style.css" rel="stylesheet" />
   	<link rel="preconnect" href="https://fonts.googleapis.com">
   	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

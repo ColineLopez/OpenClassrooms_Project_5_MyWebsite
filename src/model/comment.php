@@ -80,9 +80,13 @@ class CommentRepository
 	public function validateComment(float $commentID): bool
 	{
 		$statement = $this->connection->getConnection()->prepare(
-			'UPDATE comments SET status="'.self::VALID.'",  moderationDate=NOW() WHERE commentID = ?'
+		    'UPDATE comments SET status = :valid, moderationDate = NOW() WHERE commentID = :commentID'
 		);
-		$affectedLines = $statement->execute([$commentID]);
+
+		$statement->bindValue(':valid', self::VALID, \PDO::PARAM_INT); 
+		$statement->bindValue(':commentID', $commentID, \PDO::PARAM_INT); 
+
+		$affectedLines = $statement->execute();
 
 		return ($affectedLines > 0);
 	}
@@ -90,10 +94,13 @@ class CommentRepository
 	public function rejectComment(float $commentID): bool
 	{
 		$statement = $this->connection->getConnection()->prepare(
-			'UPDATE comments SET status="'.self::REFUSED.'", moderationDate=NOW() WHERE commentID = ?'
+			'UPDATE comments SET status= :refused, moderationDate=NOW() WHERE commentID = :commentID'
 		);
-	
-		$affectedLines = $statement->execute([$commentID]);
+
+		$statement->bindValue(':refused', self::REFUSED, \PDO::PARAM_INT); 
+		$statement->bindValue(':commentID', $commentID, \PDO::PARAM_INT); 
+
+		$affectedLines = $statement->execute();
 	
 		return($affectedLines > 0);
 	}
