@@ -8,8 +8,17 @@ require_once('src/model/comment.php');
 use MyWebsite\Lib\Database\DatabaseConnection;
 use MyWebsite\Model\Comment\CommentRepository;
 
+/**
+ * class that allows to moderate comment
+ */
 class CommentModeration
 {
+    /**
+     * function that allows to moderate comment
+     * 
+     * @param array $input get the form inputs
+     * @throws exception if forms data are invalid.
+     */
     public function execute(array $input)  : void 
     {
         $commentID = null;

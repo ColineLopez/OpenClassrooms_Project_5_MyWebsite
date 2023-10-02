@@ -16,10 +16,20 @@ class Post
 	public string $name;
 }
 
+/**
+ * 
+ * class that contains methods for articles
+ */
 class PostRepository 
 {
 	public DatabaseConnection $connection;
 
+	/**
+	 * function to get article informations
+	 * 
+	 * @param string $postID the article ID 
+	 * @return array article
+	 */
 	public function getPost(string $postID): Post 
 	{
 		$statement = $this->connection->getConnection()->prepare(
@@ -41,6 +51,11 @@ class PostRepository
 		return $post;
 	}
 
+	/**
+	 * function to get articles
+	 * 
+	 * @return array articles
+	 */
 	public function getPosts(): array 
 	{
 		$statement = $this->connection->getConnection()->query(
@@ -64,6 +79,15 @@ class PostRepository
 		return $posts;
 	}
 
+	/**
+	 * function to create an article
+	 * 
+	 * @param string $email the email from the author
+	 * @param string $title 
+	 * @param string $chapo
+	 * @param string $content
+	 * @param string $image  
+	 */
 	public function createArticle(string $email, string $title, string $chapo, string $content, string $image): bool
 	{
 		$statement = $this->connection->getConnection()->prepare(
@@ -74,6 +98,16 @@ class PostRepository
 		return ($affectedLines > 0);
 	}
 
+	/**
+	 * function to edit an article
+	 * 
+	 * @param string $postID the ID of the article we want to edit
+	 * @param string $email the email from the author
+	 * @param string $title 
+	 * @param string $chapo
+	 * @param string $content
+	 * @param string $image  
+	 */
 	public function modifyArticle(string $postID, string $email, string $title, string $chapo, string $content): bool
 	{
 		$statement = $this->connection->getConnection()->prepare(
@@ -84,6 +118,11 @@ class PostRepository
 		return ($affectedLines > 0);
 	}
 
+	/**
+	 * function to delete an article
+	 * 
+	 * @param string $postID the article ID we want to delete
+	 */
 	public function deleteArticle(string $postID): bool
 	{
 		$statement = $this->connection->getConnection()->prepare(

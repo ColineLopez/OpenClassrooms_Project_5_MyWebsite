@@ -7,8 +7,17 @@ require_once('src/model/user.php');
 use MyWebsite\Lib\Database\DatabaseConnection;
 use MyWebsite\Model\User\UserRepository;
 
+/**
+ * class that allows to sign up
+ */
 class SignUpOperation
 {
+	/**
+     * function that allows to sign up
+     * 
+     * @param array $input get the form inputs
+     * @throws exception if forms data are invalid
+     */
 	public function execute(array $input) : void
 	{
 		$name = null;

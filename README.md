@@ -14,3 +14,10 @@ SQL version : 8.0.31
 ### Clone Project on your machine 
 
 git clone https://github.com/ColineLopez/mywebsite.git [yourdirectory] 
+
+### Project's screenshot
+
+![Homepage](images/readme/accueil.png)
+![Connection's page](images/readme/connexion.png)
+![Articles' page](images/readme/articles.png)
+![Article's page](images/readme/article.png)

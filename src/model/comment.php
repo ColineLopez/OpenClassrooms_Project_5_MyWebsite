@@ -13,15 +13,23 @@ class Comment
 	public string $content;
 }
 
+/**
+ * 
+ * class that contains methods for the comment
+ */
 class CommentRepository 
 {
-
 	private const WAITING = 1;
 	private const VALID = 2;
 	private const REFUSED = 3;
 
 	public DatabaseConnection $connection;
 
+	/**
+	 * function to get the comment from an article ID
+	 * 
+	 * @param string $postID the article ID
+	 */
 	public function getComments(string $postID): array
 	{
 		$statement = $this->connection->getConnection()->prepare(
@@ -44,6 +52,13 @@ class CommentRepository
 		return $comments;
 	}
 
+	/**
+	 * function to create the comment in the database
+	 * 
+	 * @param string $postID the article ID where we put the comment
+	 * @param string $author the author from the comment 
+	 * @param string $comment the comment
+	 */
 	public function createComment(string $postID, string $author, string $comment) : bool
 	{
 		$statement = $this->connection->getConnection()->prepare(
@@ -54,6 +69,10 @@ class CommentRepository
 		return ($affectedLines > 0);
 	}
 
+	/**
+	 * 
+	 * function to get the comments to moderate
+	 */
 	public function comments2Moderate(): array
 	{
 		$statement = $this->connection->getConnection()->prepare(
@@ -78,6 +97,12 @@ class CommentRepository
 		return $comments;
 	}
 
+	/**
+	 * 
+	 * function to validate the comments to moderate
+	 * 
+	 * @param float $commentID the comment ID we want to moderate
+	 */
 	public function validateComment(float $commentID): bool
 	{
 		$statement = $this->connection->getConnection()->prepare(
@@ -92,6 +117,12 @@ class CommentRepository
 		return ($affectedLines > 0);
 	}
 
+	/**
+	 * 
+	 * function to refuse the comments to moderate
+	 * 
+	 * @param float $commentID the comment ID we want to moderate
+	 */
 	public function rejectComment(float $commentID): bool
 	{
 		$statement = $this->connection->getConnection()->prepare(

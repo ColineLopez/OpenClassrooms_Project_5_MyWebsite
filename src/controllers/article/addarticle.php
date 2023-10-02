@@ -8,8 +8,17 @@ require_once('src/model/post.php');
 use MyWebsite\Lib\Database\DatabaseConnection;
 use MyWebsite\Model\Post\PostRepository;
 
+/**
+ * class that allows to add an article
+ */
 class AddArticle
 {
+    /**
+     * function to add an article from forms input
+     * 
+     * @param array $input inputs from the form
+     * @throws exception if input forms are invalid or it their was an issue posting the SQL Data
+     */
     public function execute(array $input) : void
     {
         $email = null;

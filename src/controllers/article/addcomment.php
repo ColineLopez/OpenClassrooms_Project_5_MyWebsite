@@ -8,8 +8,18 @@ require_once('src/model/comment.php');
 use MyWebsite\Lib\Database\DatabaseConnection;
 use MyWebsite\Model\Comment\CommentRepository;
 
+/**
+ * class that allows to add a comment
+ */
 class AddComment
 {
+    /**
+     * function to add an article from forms input
+     * 
+     * @param string $postID ID of the article we want to comment
+     * @param array $input inputs from the form
+     * @throws exception if input forms are invalid or it their was an issue posting the SQL Data
+     */
     public function execute(string $postID, array $input) : void
     {
         $author = null;

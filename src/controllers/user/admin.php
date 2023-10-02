@@ -9,8 +9,15 @@ use MyWebsite\Lib\Database\DatabaseConnection;
 use MyWebsite\Model\Admin\AdminRepository;
 use MyWebsite\Model\Comment\CommentRepository;
 
+/**
+ * class that get the comments to moderate
+ */
 class Admin
 {
+	/**
+     * function that allows to get the comments to moderate
+     * 
+     */
 	public function execute()  : void
 	{
 		$connection = new DatabaseConnection();

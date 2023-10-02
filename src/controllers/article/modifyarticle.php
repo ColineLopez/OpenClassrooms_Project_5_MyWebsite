@@ -8,8 +8,18 @@ require_once('src/model/post.php');
 use MyWebsite\Lib\Database\DatabaseConnection;
 use MyWebsite\Model\Post\PostRepository;
 
+/**
+ * class that allows to edit an article
+ */
 class ModifyArticle
 {
+    /**
+     * function that allows to moderate comment
+     * 
+     * @param string $postID the article ID we want to edit
+     * @param array $input get the form inputs that will modify the article
+     * @throws exception if forms data are invalid.
+     */
     public function execute(string $postID, array $input) : void
     {
         $email = null;

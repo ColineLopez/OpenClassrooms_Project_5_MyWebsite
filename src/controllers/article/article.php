@@ -10,8 +10,16 @@ use MyWebsite\Lib\Database\DatabaseConnection;
 use MyWebsite\Model\Post\PostRepository;
 use MyWebsite\Model\Comment\CommentRepository;
 
+/**
+ * class that allows to get an article and their comments
+ */
 class Article
 {
+	/**
+     * function to get an article and their comments
+     * 
+     * @param string $postID ID of the article we want to get
+     */
 	public function execute(string $postID) : void
 	{
 		$connection = new DatabaseConnection();

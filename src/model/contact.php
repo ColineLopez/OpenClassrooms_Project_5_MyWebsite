@@ -15,10 +15,23 @@ class Contact
 	public string $creationDate;
 }
 
+/**
+ * 
+ * class that contains methods for the contact action
+ */
 class ContactRepository 
 {
 	public DatabaseConnection $connection;
 
+	/**
+	 * function to post the contact request
+	 * 
+	 * @param string $lastname
+	 * @param string $firstname 
+	 * @param string $email
+	 * @param string content
+	 * 
+	 */
 	public function contactPost(string $lastname, string $firstname, string $email, string $content): bool
 	{
 		$statement = $this->connection->getConnection()->prepare(
@@ -30,6 +43,15 @@ class ContactRepository
 		return ($affectedLines > 0);
 	}
 
+	/**
+	 * function to send an email from the contact request
+	 * 
+	 * @param string $lastname
+	 * @param string $firstname 
+	 * @param string $email
+	 * @param string content
+	 * 
+	 */
 	public function sendMail(string $lastname, string $firstname, string $email, string $content): void 
 	{
 		$to = "coline.llopez@gmail.com";
