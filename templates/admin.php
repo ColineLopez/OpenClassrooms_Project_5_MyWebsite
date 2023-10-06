@@ -40,21 +40,23 @@
     </div>
     <?php
     foreach ($comments as $comment) { 
-    ?>
-    <div class='grid-five center margin-content'>
-            <div><button class="link" onclick="window.open('index.php?action=article&postID=<?php echo htmlspecialchars($comment->postID); ?>')"></button></div>
-            <div class="bold"><?php echo htmlspecialchars($comment->creationDate); ?></div> 
-            <div class="green bold"><?php echo htmlspecialchars($comment->author); ?></div>
-            <div><?php echo htmlspecialchars($comment->content); ?></div>
-            <div>
-                <form class="moderation" action="index.php?action=moderateComment" method="post">
-                    <input type='hidden' name='commentID' value=<?php echo htmlspecialchars($comment->commentID); ?>>
-                    <input type="submit" name="true" value="" class="true transition">
-                    <input type="submit" name="false" value="" class="false transition">
-                </form>
-            </div>
-    </div>
-    <?php
+        if($comment->status ==1){
+        ?>
+        <div class='grid-five center margin-content'>
+                <div><button class="link" onclick="window.open('index.php?action=article&postID=<?php echo htmlspecialchars($comment->postID); ?>')"></button></div>
+                <div class="bold"><?php echo htmlspecialchars($comment->creationDate); ?></div> 
+                <div class="green bold"><?php echo htmlspecialchars($comment->author); ?></div>
+                <div><?php echo htmlspecialchars($comment->content); ?></div>
+                <div>
+                    <form class="moderation" action="index.php?action=moderateComment" method="post">
+                        <input type='hidden' name='commentID' value=<?php echo htmlspecialchars($comment->commentID); ?>>
+                        <input type="submit" name="true" value="" class="true transition">
+                        <input type="submit" name="false" value="" class="false transition">
+                    </form>
+                </div>
+        </div>
+        <?php
+        }
     }
     ?>      
 </div>
