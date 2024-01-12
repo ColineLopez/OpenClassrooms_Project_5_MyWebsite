@@ -13,7 +13,7 @@ SQL version : 8.0.31
 
 ### Clone Project on your machine 
 
-git clone https://github.com/ColineLopez/mywebsite.git [yourdirectory] 
+git clone https://github.com/ColineLopez/mywebsite.git
 
 ### Project's screenshot
 
