@@ -1,10 +1,10 @@
 # 🌐 My Website - OpenClassrooms' Project 5
 
-### 🌟 Project Overview
+## 🌟 Project Overview
 
 The main objective of this project is to create a professional blog using PHP. The website features two distinct categories of pages: those accessible to all visitors and those restricted to administrators.
 
-🚀 Getting Started
+## 🚀 Getting Started
 
 1. Clone the repository
    
@@ -33,7 +33,7 @@ The main objective of this project is to create a professional blog using PHP. T
   - Public Pages: Accessible to all visitors.
   - Admin Pages: Restricted access for administrators to manage the blog content.
 
-### 🛠️ Workspace Environment
+## 🛠️ Workspace Environment
 
 ![PHP](https://img.shields.io/badge/PHP-8.0.2-blue)
 
@@ -41,7 +41,7 @@ The main objective of this project is to create a professional blog using PHP. T
 
 Server: Developed using WAMP on a local server.
 
-### 📸 Project's screenshot
+## 📸 Project's screenshot
 
 ![Homepage](images/readme/accueil.png)
 ![Connection's page](images/readme/connexion.png)
